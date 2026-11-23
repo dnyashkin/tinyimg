@@ -1,0 +1,4653 @@
+[
+  {
+    "name": "01-web-ui.jpg",
+    "orig_size": 273736,
+    "comp_size": 102110,
+    "tiny_metrics": {
+      "psnr": 32.1695696402911,
+      "ssim": 0.9938580759285002,
+      "unique_orig": 52063,
+      "unique_comp": 66265
+    },
+    "ours_size": 95405,
+    "ours_metrics": {
+      "psnr": 29.639876418128082,
+      "ssim": 0.9929572980555358,
+      "unique_orig": 52063,
+      "unique_comp": 68595
+    },
+    "gate_size_ok": true,
+    "gate_ssim_ok": true,
+    "jpeg_orig": {
+      "path": "orginal/01-web-ui.jpg",
+      "progressive": false,
+      "width": 1600,
+      "height": 1200,
+      "components": 3,
+      "sampling": "4:4:4",
+      "markers": [
+        {
+          "type": "APP0/JFIF",
+          "size": 16
+        },
+        {
+          "type": "COM",
+          "size": 52
+        },
+        {
+          "type": "DQT",
+          "size": 67
+        },
+        {
+          "type": "DQT",
+          "size": 67
+        },
+        {
+          "type": "SOF0 baseline",
+          "size": 17
+        },
+        {
+          "type": "DHT",
+          "size": 31
+        },
+        {
+          "type": "DHT",
+          "size": 123
+        },
+        {
+          "type": "DHT",
+          "size": 28
+        },
+        {
+          "type": "DHT",
+          "size": 86
+        },
+        {
+          "type": "SOS",
+          "size": 0
+        }
+      ],
+      "q_tables": [
+        {
+          "id": 0,
+          "precision": 0,
+          "mean": 6.9375
+        },
+        {
+          "id": 1,
+          "precision": 0,
+          "mean": 10.515625
+        }
+      ],
+      "est_quality": 87
+    },
+    "jpeg_comp": {
+      "path": "compressed_by_tinypng/01-web-ui.jpg",
+      "progressive": true,
+      "width": 1600,
+      "height": 1200,
+      "components": 3,
+      "sampling": "4:4:4",
+      "markers": [
+        {
+          "type": "APP0/JFIF",
+          "size": 16
+        },
+        {
+          "type": "DQT",
+          "size": 67
+        },
+        {
+          "type": "DQT",
+          "size": 67
+        },
+        {
+          "type": "SOF2 progressive",
+          "size": 17
+        },
+        {
+          "type": "DHT",
+          "size": 28
+        },
+        {
+          "type": "DHT",
+          "size": 27
+        },
+        {
+          "type": "SOS",
+          "size": 0
+        }
+      ],
+      "q_tables": [
+        {
+          "id": 0,
+          "precision": 0,
+          "mean": 38.078125
+        },
+        {
+          "id": 1,
+          "precision": 0,
+          "mean": 56.515625
+        }
+      ],
+      "est_quality": 27
+    },
+    "jpeg_scan": [
+      {
+        "name": "image/jpeg q=50",
+        "size": 93554,
+        "psnr": 29.52,
+        "ssim": 0.99,
+        "colors": 0
+      },
+      {
+        "name": "image/jpeg q=60",
+        "size": 102189,
+        "psnr": 30.12,
+        "ssim": 0.99,
+        "colors": 0
+      },
+      {
+        "name": "image/jpeg q=65",
+        "size": 109252,
+        "psnr": 30.51,
+        "ssim": 0.99,
+        "colors": 0
+      },
+      {
+        "name": "image/jpeg q=70",
+        "size": 116372,
+        "psnr": 31,
+        "ssim": 1,
+        "colors": 0
+      },
+      {
+        "name": "image/jpeg q=75",
+        "size": 126085,
+        "psnr": 31.43,
+        "ssim": 1,
+        "colors": 0
+      },
+      {
+        "name": "image/jpeg q=80",
+        "size": 140708,
+        "psnr": 32.17,
+        "ssim": 1,
+        "colors": 0
+      },
+      {
+        "name": "image/jpeg q=85",
+        "size": 156170,
+        "psnr": 32.85,
+        "ssim": 1,
+        "colors": 0
+      },
+      {
+        "name": "image/jpeg q=90",
+        "size": 189770,
+        "psnr": 33.69,
+        "ssim": 1,
+        "colors": 0
+      },
+      {
+        "name": "image/jpeg q=95",
+        "size": 248328,
+        "psnr": 34.54,
+        "ssim": 1,
+        "colors": 0
+      }
+    ],
+    "best_candidate": ""
+  },
+  {
+    "name": "02-dashboard-ui.png",
+    "orig_size": 721068,
+    "comp_size": 261170,
+    "tiny_metrics": {
+      "psnr": 45.85941939834263,
+      "ssim": 0.9987560071099681,
+      "unique_orig": 16771,
+      "unique_comp": 255
+    },
+    "ours_size": 222342,
+    "ours_metrics": {
+      "psnr": 39.43489942676525,
+      "ssim": 0.9860787197106732,
+      "unique_orig": 16771,
+      "unique_comp": 229
+    },
+    "gate_size_ok": true,
+    "gate_ssim_ok": true,
+    "png_orig": {
+      "path": "orginal/02-dashboard-ui.png",
+      "width": 1600,
+      "height": 1200,
+      "bit_depth": 8,
+      "color_type": 6,
+      "color_type_name": "truecolor+alpha",
+      "interlace": 0,
+      "chunks": [
+        {
+          "type": "IHDR",
+          "size": 13
+        },
+        {
+          "type": "IDAT",
+          "size": 32768
+        },
+        {
+          "type": "IDAT",
+          "size": 32768
+        },
+        {
+          "type": "IDAT",
+          "size": 32768
+        },
+        {
+          "type": "IDAT",
+          "size": 32768
+        },
+        {
+          "type": "IDAT",
+          "size": 32768
+        },
+        {
+          "type": "IDAT",
+          "size": 32768
+        },
+        {
+          "type": "IDAT",
+          "size": 32768
+        },
+        {
+          "type": "IDAT",
+          "size": 32768
+        },
+        {
+          "type": "IDAT",
+          "size": 32768
+        },
+        {
+          "type": "IDAT",
+          "size": 32768
+        },
+        {
+          "type": "IDAT",
+          "size": 32768
+        },
+        {
+          "type": "IDAT",
+          "size": 32768
+        },
+        {
+          "type": "IDAT",
+          "size": 32768
+        },
+        {
+          "type": "IDAT",
+          "size": 32768
+        },
+        {
+          "type": "IDAT",
+          "size": 32768
+        },
+        {
+          "type": "IDAT",
+          "size": 32768
+        },
+        {
+          "type": "IDAT",
+          "size": 32768
+        },
+        {
+          "type": "IDAT",
+          "size": 32768
+        },
+        {
+          "type": "IDAT",
+          "size": 32768
+        },
+        {
+          "type": "IDAT",
+          "size": 32768
+        },
+        {
+          "type": "IDAT",
+          "size": 32768
+        },
+        {
+          "type": "IDAT",
+          "size": 32631
+        },
+        {
+          "type": "IEND",
+          "size": 0
+        }
+      ],
+      "palette_used": 0,
+      "palette_max": 0,
+      "has_trns": false,
+      "text_chunks": null,
+      "idat_compressed": 720759,
+      "idat_raw": 7681200,
+      "filter_hist": [
+        0,
+        52,
+        86,
+        23,
+        1039
+      ]
+    },
+    "png_comp": {
+      "path": "compressed_by_tinypng/02-dashboard-ui.png",
+      "width": 1600,
+      "height": 1200,
+      "bit_depth": 8,
+      "color_type": 3,
+      "color_type_name": "indexed (palette)",
+      "interlace": 0,
+      "chunks": [
+        {
+          "type": "IHDR",
+          "size": 13
+        },
+        {
+          "type": "PLTE",
+          "size": 765
+        },
+        {
+          "type": "IDAT",
+          "size": 260336
+        },
+        {
+          "type": "IEND",
+          "size": 0
+        }
+      ],
+      "palette_used": 0,
+      "palette_max": 255,
+      "has_trns": false,
+      "text_chunks": null,
+      "idat_compressed": 260336,
+      "idat_raw": 1921200,
+      "filter_hist": [
+        1200,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "png_candidates": [
+      {
+        "name": "median-cut 256 + zlib-best + FS-dither",
+        "size": 323839,
+        "psnr": 30.7,
+        "ssim": 0.95,
+        "colors": 256
+      },
+      {
+        "name": "median-cut 256 + zlib-best (без дизеринга)",
+        "size": 161846,
+        "psnr": 40.35,
+        "ssim": 1,
+        "colors": 256
+      },
+      {
+        "name": "median-cut 128 + zlib-best + FS-dither",
+        "size": 302650,
+        "psnr": 29.23,
+        "ssim": 0.95,
+        "colors": 128
+      },
+      {
+        "name": "median-cut 128 + zlib-best (без дизеринга)",
+        "size": 148662,
+        "psnr": 38.17,
+        "ssim": 0.99,
+        "colors": 128
+      },
+      {
+        "name": "median-cut 64 + zlib-best + FS-dither",
+        "size": 292166,
+        "psnr": 27.23,
+        "ssim": 0.94,
+        "colors": 64
+      },
+      {
+        "name": "median-cut 64 + zlib-best (без дизеринга)",
+        "size": 139863,
+        "psnr": 34.05,
+        "ssim": 0.99,
+        "colors": 64
+      }
+    ],
+    "best_candidate": "median-cut 256 + zlib-best + FS-dither"
+  },
+  {
+    "name": "03-pixel-art-hand.png",
+    "orig_size": 2971419,
+    "comp_size": 1037304,
+    "tiny_metrics": {
+      "psnr": 39.89084488443225,
+      "ssim": 0.9909620484738974,
+      "unique_orig": 88338,
+      "unique_comp": 256
+    },
+    "ours_size": 1170046,
+    "ours_metrics": {
+      "psnr": 37.56917059044194,
+      "ssim": 0.9849636434248993,
+      "unique_orig": 88338,
+      "unique_comp": 254
+    },
+    "gate_size_ok": true,
+    "gate_ssim_ok": true,
+    "png_orig": {
+      "path": "orginal/03-pixel-art-hand.png",
+      "width": 4445,
+      "height": 2500,
+      "bit_depth": 8,
+      "color_type": 6,
+      "color_type_name": "truecolor+alpha",
+      "interlace": 0,
+      "chunks": [
+        {
+          "type": "IHDR",
+          "size": 13
+        },
+        {
+          "type": "pHYs",
+          "size": 9
+        },
+        {
+          "type": "tEXt",
+          "size": 27
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 1454
+        },
+        {
+          "type": "IEND",
+          "size": 0
+        }
+      ],
+      "palette_used": 0,
+      "palette_max": 0,
+      "has_trns": false,
+      "text_chunks": [
+        "Software"
+      ],
+      "idat_compressed": 2966958,
+      "idat_raw": 44452500,
+      "filter_hist": [
+        0,
+        2500,
+        0,
+        0,
+        0
+      ]
+    },
+    "png_comp": {
+      "path": "compressed_by_tinypng/03-pixel-art-hand.png",
+      "width": 4445,
+      "height": 2500,
+      "bit_depth": 8,
+      "color_type": 3,
+      "color_type_name": "indexed (palette)",
+      "interlace": 0,
+      "chunks": [
+        {
+          "type": "IHDR",
+          "size": 13
+        },
+        {
+          "type": "PLTE",
+          "size": 768
+        },
+        {
+          "type": "IDAT",
+          "size": 524287
+        },
+        {
+          "type": "IDAT",
+          "size": 512168
+        },
+        {
+          "type": "IEND",
+          "size": 0
+        }
+      ],
+      "palette_used": 0,
+      "palette_max": 256,
+      "has_trns": false,
+      "text_chunks": null,
+      "idat_compressed": 1036455,
+      "idat_raw": 11115000,
+      "filter_hist": [
+        2500,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "png_candidates": [
+      {
+        "name": "median-cut 256 + zlib-best + FS-dither",
+        "size": 2512670,
+        "psnr": 27.52,
+        "ssim": 0.83,
+        "colors": 256
+      },
+      {
+        "name": "median-cut 256 + zlib-best (без дизеринга)",
+        "size": 452903,
+        "psnr": 37.79,
+        "ssim": 0.99,
+        "colors": 256
+      },
+      {
+        "name": "median-cut 128 + zlib-best + FS-dither",
+        "size": 2348839,
+        "psnr": 26.68,
+        "ssim": 0.81,
+        "colors": 128
+      },
+      {
+        "name": "median-cut 128 + zlib-best (без дизеринга)",
+        "size": 379057,
+        "psnr": 36.38,
+        "ssim": 0.99,
+        "colors": 128
+      },
+      {
+        "name": "median-cut 64 + zlib-best + FS-dither",
+        "size": 2031087,
+        "psnr": 24.79,
+        "ssim": 0.76,
+        "colors": 64
+      },
+      {
+        "name": "median-cut 64 + zlib-best (без дизеринга)",
+        "size": 277430,
+        "psnr": 32.62,
+        "ssim": 0.98,
+        "colors": 64
+      }
+    ],
+    "best_candidate": "median-cut 256 + zlib-best + FS-dither"
+  },
+  {
+    "name": "04-pixel-art-sleep.png",
+    "orig_size": 3737107,
+    "comp_size": 1197766,
+    "tiny_metrics": {
+      "psnr": 36.858778331223824,
+      "ssim": 0.9842046330916381,
+      "unique_orig": 127959,
+      "unique_comp": 256
+    },
+    "ours_size": 1416040,
+    "ours_metrics": {
+      "psnr": 33.95237220810979,
+      "ssim": 0.9804650211111653,
+      "unique_orig": 127959,
+      "unique_comp": 236
+    },
+    "gate_size_ok": true,
+    "gate_ssim_ok": true,
+    "png_orig": {
+      "path": "orginal/04-pixel-art-sleep.png",
+      "width": 4445,
+      "height": 2500,
+      "bit_depth": 8,
+      "color_type": 6,
+      "color_type_name": "truecolor+alpha",
+      "interlace": 0,
+      "chunks": [
+        {
+          "type": "IHDR",
+          "size": 13
+        },
+        {
+          "type": "pHYs",
+          "size": 9
+        },
+        {
+          "type": "tEXt",
+          "size": 27
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 8192
+        },
+        {
+          "type": "IDAT",
+          "size": 4170
+        },
+        {
+          "type": "IEND",
+          "size": 0
+        }
+      ],
+      "palette_used": 0,
+      "palette_max": 0,
+      "has_trns": false,
+      "text_chunks": [
+        "Software"
+      ],
+      "idat_compressed": 3731530,
+      "idat_raw": 44452500,
+      "filter_hist": [
+        0,
+        2500,
+        0,
+        0,
+        0
+      ]
+    },
+    "png_comp": {
+      "path": "compressed_by_tinypng/04-pixel-art-sleep.png",
+      "width": 4445,
+      "height": 2500,
+      "bit_depth": 8,
+      "color_type": 3,
+      "color_type_name": "indexed (palette)",
+      "interlace": 0,
+      "chunks": [
+        {
+          "type": "IHDR",
+          "size": 13
+        },
+        {
+          "type": "PLTE",
+          "size": 768
+        },
+        {
+          "type": "IDAT",
+          "size": 524287
+        },
+        {
+          "type": "IDAT",
+          "size": 524287
+        },
+        {
+          "type": "IDAT",
+          "size": 148331
+        },
+        {
+          "type": "IEND",
+          "size": 0
+        }
+      ],
+      "palette_used": 0,
+      "palette_max": 256,
+      "has_trns": false,
+      "text_chunks": null,
+      "idat_compressed": 1196905,
+      "idat_raw": 11115000,
+      "filter_hist": [
+        2500,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "png_candidates": [
+      {
+        "name": "median-cut 256 + zlib-best + FS-dither",
+        "size": 2691921,
+        "psnr": 26.1,
+        "ssim": 0.86,
+        "colors": 256
+      },
+      {
+        "name": "median-cut 256 + zlib-best (без дизеринга)",
+        "size": 598736,
+        "psnr": 32.35,
+        "ssim": 0.98,
+        "colors": 256
+      },
+      {
+        "name": "median-cut 128 + zlib-best + FS-dither",
+        "size": 2471742,
+        "psnr": 24.76,
+        "ssim": 0.84,
+        "colors": 128
+      },
+      {
+        "name": "median-cut 128 + zlib-best (без дизеринга)",
+        "size": 501487,
+        "psnr": 31,
+        "ssim": 0.98,
+        "colors": 128
+      },
+      {
+        "name": "median-cut 64 + zlib-best + FS-dither",
+        "size": 2178337,
+        "psnr": 22.97,
+        "ssim": 0.81,
+        "colors": 64
+      },
+      {
+        "name": "median-cut 64 + zlib-best (без дизеринга)",
+        "size": 357966,
+        "psnr": 29.45,
+        "ssim": 0.97,
+        "colors": 64
+      }
+    ],
+    "best_candidate": "median-cut 256 + zlib-best + FS-dither"
+  },
+  {
+    "name": "05-landing-art.png",
+    "orig_size": 2418986,
+    "comp_size": 674062,
+    "tiny_metrics": {
+      "psnr": 39.76593545459004,
+      "ssim": 0.9966131621143447,
+      "unique_orig": 66233,
+      "unique_comp": 256
+    },
+    "ours_size": 688500,
+    "ours_metrics": {
+      "psnr": 36.48637791623686,
+      "ssim": 0.9910717495455783,
+      "unique_orig": 66233,
+      "unique_comp": 232
+    },
+    "gate_size_ok": true,
+    "gate_ssim_ok": true,
+    "png_orig": {
+      "path": "orginal/05-landing-art.png",
+      "width": 3200,
+      "height": 2400,
+      "bit_depth": 8,
+      "color_type": 6,
+      "color_type_name": "truecolor+alpha",
+      "interlace": 0,
+      "chunks": [
+        {
+          "type": "IHDR",
+          "size": 13
+        },
+        {
+          "type": "pHYs",
+          "size": 9
+        },
+        {
+          "type": "sRGB",
+          "size": 1
+        },
+        {
+          "type": "gAMA",
+          "size": 4
+        },
+        {
+          "type": "IDAT",
+          "size": 2418879
+        },
+        {
+          "type": "IEND",
+          "size": 0
+        }
+      ],
+      "palette_used": 0,
+      "palette_max": 0,
+      "has_trns": false,
+      "text_chunks": null,
+      "idat_compressed": 2418879,
+      "idat_raw": 30722400,
+      "filter_hist": [
+        0,
+        15,
+        184,
+        79,
+        2122
+      ]
+    },
+    "png_comp": {
+      "path": "compressed_by_tinypng/05-landing-art.png",
+      "width": 3200,
+      "height": 2400,
+      "bit_depth": 8,
+      "color_type": 3,
+      "color_type_name": "indexed (palette)",
+      "interlace": 0,
+      "chunks": [
+        {
+          "type": "IHDR",
+          "size": 13
+        },
+        {
+          "type": "PLTE",
+          "size": 768
+        },
+        {
+          "type": "IDAT",
+          "size": 524287
+        },
+        {
+          "type": "IDAT",
+          "size": 148926
+        },
+        {
+          "type": "IEND",
+          "size": 0
+        }
+      ],
+      "palette_used": 0,
+      "palette_max": 256,
+      "has_trns": false,
+      "text_chunks": null,
+      "idat_compressed": 673213,
+      "idat_raw": 7682400,
+      "filter_hist": [
+        2400,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "png_candidates": [
+      {
+        "name": "median-cut 256 + zlib-best + FS-dither",
+        "size": 1017686,
+        "psnr": 29.85,
+        "ssim": 0.95,
+        "colors": 256
+      },
+      {
+        "name": "median-cut 256 + zlib-best (без дизеринга)",
+        "size": 518359,
+        "psnr": 34.91,
+        "ssim": 0.99,
+        "colors": 256
+      },
+      {
+        "name": "median-cut 128 + zlib-best + FS-dither",
+        "size": 961381,
+        "psnr": 27.26,
+        "ssim": 0.94,
+        "colors": 128
+      },
+      {
+        "name": "median-cut 128 + zlib-best (без дизеринга)",
+        "size": 469713,
+        "psnr": 32.14,
+        "ssim": 0.99,
+        "colors": 128
+      },
+      {
+        "name": "median-cut 64 + zlib-best + FS-dither",
+        "size": 877426,
+        "psnr": 24.49,
+        "ssim": 0.91,
+        "colors": 64
+      },
+      {
+        "name": "median-cut 64 + zlib-best (без дизеринга)",
+        "size": 412725,
+        "psnr": 29.65,
+        "ssim": 0.99,
+        "colors": 64
+      }
+    ],
+    "best_candidate": "median-cut 256 + zlib-best + FS-dither"
+  },
+  {
+    "name": "06-anime-art.png",
+    "orig_size": 2407970,
+    "comp_size": 580934,
+    "tiny_metrics": {
+      "psnr": 31.72840266650507,
+      "ssim": 0.9645992717738697,
+      "unique_orig": 381375,
+      "unique_comp": 256
+    },
+    "ours_size": 608340,
+    "ours_metrics": {
+      "psnr": 28.980144945787913,
+      "ssim": 0.9544378669303722,
+      "unique_orig": 381375,
+      "unique_comp": 256
+    },
+    "gate_size_ok": true,
+    "gate_ssim_ok": true,
+    "png_orig": {
+      "path": "orginal/06-anime-art.png",
+      "width": 1024,
+      "height": 1536,
+      "bit_depth": 8,
+      "color_type": 2,
+      "color_type_name": "truecolor RGB",
+      "interlace": 0,
+      "chunks": [
+        {
+          "type": "IHDR",
+          "size": 13
+        },
+        {
+          "type": "caBX",
+          "size": 19505
+        },
+        {
+          "type": "IDAT",
+          "size": 65536
+        },
+        {
+          "type": "IDAT",
+          "size": 65536
+        },
+        {
+          "type": "IDAT",
+          "size": 65536
+        },
+        {
+          "type": "IDAT",
+          "size": 65536
+        },
+        {
+          "type": "IDAT",
+          "size": 65536
+        },
+        {
+          "type": "IDAT",
+          "size": 65536
+        },
+        {
+          "type": "IDAT",
+          "size": 65536
+        },
+        {
+          "type": "IDAT",
+          "size": 65536
+        },
+        {
+          "type": "IDAT",
+          "size": 65536
+        },
+        {
+          "type": "IDAT",
+          "size": 65536
+        },
+        {
+          "type": "IDAT",
+          "size": 65536
+        },
+        {
+          "type": "IDAT",
+          "size": 65536
+        },
+        {
+          "type": "IDAT",
+          "size": 65536
+        },
+        {
+          "type": "IDAT",
+          "size": 65536
+        },
+        {
+          "type": "IDAT",
+          "size": 65536
+        },
+        {
+          "type": "IDAT",
+          "size": 65536
+        },
+        {
+          "type": "IDAT",
+          "size": 65536
+        },
+        {
+          "type": "IDAT",
+          "size": 65536
+        },
+        {
+          "type": "IDAT",
+          "size": 65536
+        },
+        {
+          "type": "IDAT",
+          "size": 65536
+        },
+        {
+          "type": "IDAT",
+          "size": 65536
+        },
+        {
+          "type": "IDAT",
+          "size": 65536
+        },
+        {
+          "type": "IDAT",
+          "size": 65536
+        },
+        {
+          "type": "IDAT",
+          "size": 65536
+        },
+        {
+          "type": "IDAT",
+          "size": 65536
+        },
+        {
+          "type": "IDAT",
+          "size": 65536
+        },
+        {
+          "type": "IDAT",
+          "size": 65536
+        },
+        {
+          "type": "IDAT",
+          "size": 65536
+        },
+        {
+          "type": "IDAT",
+          "size": 65536
+        },
+        {
+          "type": "IDAT",
+          "size": 65536
+        },
+        {
+          "type": "IDAT",
+          "size": 65536
+        },
+        {
+          "type": "IDAT",
+          "size": 65536
+        },
+        {
+          "type": "IDAT",
+          "size": 65536
+        },
+        {
+          "type": "IDAT",
+          "size": 65536
+        },
+        {
+          "type": "IDAT",
+          "size": 65536
+        },
+        {
+          "type": "IDAT",
+          "size": 65536
+        },
+        {
+          "type": "IDAT",
+          "size": 28449
+        },
+        {
+          "type": "tEXt",
+          "size": 207
+        },
+        {
+          "type": "IEND",
+          "size": 0
+        }
+      ],
+      "palette_used": 0,
+      "palette_max": 0,
+      "has_trns": false,
+      "text_chunks": [
+        "UserComment"
+      ],
+      "idat_compressed": 2387745,
+      "idat_raw": 4720128,
+      "filter_hist": [
+        0,
+        1,
+        115,
+        0,
+        1420
+      ]
+    },
+    "png_comp": {
+      "path": "compressed_by_tinypng/06-anime-art.png",
+      "width": 1024,
+      "height": 1536,
+      "bit_depth": 8,
+      "color_type": 3,
+      "color_type_name": "indexed (palette)",
+      "interlace": 0,
+      "chunks": [
+        {
+          "type": "IHDR",
+          "size": 13
+        },
+        {
+          "type": "PLTE",
+          "size": 768
+        },
+        {
+          "type": "IDAT",
+          "size": 524287
+        },
+        {
+          "type": "IDAT",
+          "size": 55798
+        },
+        {
+          "type": "IEND",
+          "size": 0
+        }
+      ],
+      "palette_used": 0,
+      "palette_max": 256,
+      "has_trns": false,
+      "text_chunks": null,
+      "idat_compressed": 580085,
+      "idat_raw": 1574400,
+      "filter_hist": [
+        1536,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "png_candidates": [
+      {
+        "name": "median-cut 256 + zlib-best + FS-dither",
+        "size": 656443,
+        "psnr": 22.9,
+        "ssim": 0.81,
+        "colors": 256
+      },
+      {
+        "name": "median-cut 256 + zlib-best (без дизеринга)",
+        "size": 459215,
+        "psnr": 29.12,
+        "ssim": 0.96,
+        "colors": 256
+      },
+      {
+        "name": "median-cut 128 + zlib-best + FS-dither",
+        "size": 555031,
+        "psnr": 20.7,
+        "ssim": 0.74,
+        "colors": 128
+      },
+      {
+        "name": "median-cut 128 + zlib-best (без дизеринга)",
+        "size": 351115,
+        "psnr": 26.95,
+        "ssim": 0.93,
+        "colors": 128
+      },
+      {
+        "name": "median-cut 64 + zlib-best + FS-dither",
+        "size": 447064,
+        "psnr": 17.62,
+        "ssim": 0.63,
+        "colors": 64
+      },
+      {
+        "name": "median-cut 64 + zlib-best (без дизеринга)",
+        "size": 272445,
+        "psnr": 23.78,
+        "ssim": 0.89,
+        "colors": 64
+      }
+    ],
+    "best_candidate": "median-cut 256 + zlib-best + FS-dither"
+  },
+  {
+    "name": "07-photo.jpg",
+    "orig_size": 115060,
+    "comp_size": 99478,
+    "tiny_metrics": {
+      "psnr": 35.36217460699641,
+      "ssim": 0.9913923474638212,
+      "unique_orig": 77489,
+      "unique_comp": 81817
+    },
+    "ours_size": 99974,
+    "ours_metrics": {
+      "psnr": 31.104543217192177,
+      "ssim": 0.9787073912469483,
+      "unique_orig": 77489,
+      "unique_comp": 100544
+    },
+    "gate_size_ok": true,
+    "gate_ssim_ok": true,
+    "jpeg_orig": {
+      "path": "orginal/07-photo.jpg",
+      "progressive": true,
+      "width": 1024,
+      "height": 1024,
+      "components": 3,
+      "sampling": "4:2:0",
+      "markers": [
+        {
+          "type": "APP0/JFIF",
+          "size": 16
+        },
+        {
+          "type": "DQT",
+          "size": 67
+        },
+        {
+          "type": "DQT",
+          "size": 67
+        },
+        {
+          "type": "SOF2 progressive",
+          "size": 17
+        },
+        {
+          "type": "DHT",
+          "size": 27
+        },
+        {
+          "type": "DHT",
+          "size": 24
+        },
+        {
+          "type": "SOS",
+          "size": 0
+        }
+      ],
+      "q_tables": [
+        {
+          "id": 0,
+          "precision": 0,
+          "mean": 29.03125
+        },
+        {
+          "id": 1,
+          "precision": 0,
+          "mean": 43.4375
+        }
+      ],
+      "est_quality": 44
+    },
+    "jpeg_comp": {
+      "path": "compressed_by_tinypng/07-photo.jpg",
+      "progressive": true,
+      "width": 1024,
+      "height": 1024,
+      "components": 3,
+      "sampling": "4:4:4",
+      "markers": [
+        {
+          "type": "APP0/JFIF",
+          "size": 16
+        },
+        {
+          "type": "DQT",
+          "size": 67
+        },
+        {
+          "type": "DQT",
+          "size": 67
+        },
+        {
+          "type": "SOF2 progressive",
+          "size": 17
+        },
+        {
+          "type": "DHT",
+          "size": 27
+        },
+        {
+          "type": "DHT",
+          "size": 25
+        },
+        {
+          "type": "SOS",
+          "size": 0
+        }
+      ],
+      "q_tables": [
+        {
+          "id": 0,
+          "precision": 0,
+          "mean": 36.90625
+        },
+        {
+          "id": 1,
+          "precision": 0,
+          "mean": 54.765625
+        }
+      ],
+      "est_quality": 29
+    },
+    "jpeg_scan": [
+      {
+        "name": "image/jpeg q=50",
+        "size": 93763,
+        "psnr": 30.36,
+        "ssim": 0.97,
+        "colors": 0
+      },
+      {
+        "name": "image/jpeg q=60",
+        "size": 104158,
+        "psnr": 34.12,
+        "ssim": 0.99,
+        "colors": 0
+      },
+      {
+        "name": "image/jpeg q=65",
+        "size": 107662,
+        "psnr": 36.25,
+        "ssim": 0.99,
+        "colors": 0
+      },
+      {
+        "name": "image/jpeg q=70",
+        "size": 112820,
+        "psnr": 39.44,
+        "ssim": 1,
+        "colors": 0
+      },
+      {
+        "name": "image/jpeg q=75",
+        "size": 116135,
+        "psnr": 72.77,
+        "ssim": 1,
+        "colors": 0
+      },
+      {
+        "name": "image/jpeg q=80",
+        "size": 122707,
+        "psnr": 40.93,
+        "ssim": 1,
+        "colors": 0
+      },
+      {
+        "name": "image/jpeg q=85",
+        "size": 149455,
+        "psnr": 42.45,
+        "ssim": 1,
+        "colors": 0
+      },
+      {
+        "name": "image/jpeg q=90",
+        "size": 165657,
+        "psnr": 44.15,
+        "ssim": 1,
+        "colors": 0
+      },
+      {
+        "name": "image/jpeg q=95",
+        "size": 217622,
+        "psnr": 49.48,
+        "ssim": 1,
+        "colors": 0
+      }
+    ],
+    "best_candidate": ""
+  }
+]

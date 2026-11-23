@@ -1,0 +1,62 @@
+[Unit]
+Description=tinyimg-web (сжатие PNG/JPEG/WebP)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=tinyimg
+Group=tinyimg
+WorkingDirectory=/opt/tinyimg
+Environment="TMPDIR=/var/lib/tinyimg/tmp"
+ExecStart=/opt/tinyimg/bin/tinyimg-web \
+  -addr 127.0.0.1:8099 \
+  -jobs 2 \
+  -store-mb 256 \
+  -rate 60 -burst 30 -conc 2 \
+  -trust-proxy 127.0.0.1
+Restart=on-failure
+RestartSec=5s
+
+# Журнал — в systemd, а не в файл: сервис пишет в stderr.
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=tinyimg-web
+
+KillSignal=SIGTERM
+TimeoutStopSec=20s
+
+# Изоляция: сервису нужен только свой каталог для временных файлов.
+NoNewPrivileges=yes
+ProtectSystem=strict
+ProtectHome=yes
+PrivateTmp=yes
+PrivateDevices=yes
+ProtectKernelTunables=yes
+ProtectKernelModules=yes
+ProtectControlGroups=yes
+ProtectKernelLogs=yes
+ProtectClock=yes
+ProtectHostname=yes
+RestrictSUIDSGID=yes
+RestrictNamespaces=yes
+RestrictRealtime=yes
+LockPersonality=yes
+MemoryDenyWriteExecute=yes
+SystemCallArchitectures=native
+SystemCallFilter=@system-service
+SystemCallErrorNumber=EPERM
+CapabilityBoundingSet=
+AmbientCapabilities=
+UMask=0077
+
+# Единственный путь, куда сервис пишет (временные файлы загрузок).
+ReadWritePaths=/var/lib/tinyimg
+
+# Потолок памяти: большие PNG съедают до ~1 ГБ на сжатие. Без лимита
+# OOM-счётчик убьёт случайный соседний сервис (на боксе 4 ГБ RAM на всех).
+MemoryMax=2500M
+MemorySwapMax=1G
+
+[Install]
+WantedBy=multi-user.target

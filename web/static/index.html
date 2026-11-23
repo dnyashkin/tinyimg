@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>tinyimg — сжатие PNG, JPEG и WebP без потери качества</title>
+  <meta name="description" content="tinyimg сжимает PNG, JPEG и WebP без потери качества: до 80% легче. Файлы до 100 МБ, без регистрации. Работает как MCP-сервер для AI-агентов.">
+  <link rel="canonical" href="https://tinyimg.ru/">
+
+  <!-- Фавиконки: набор в /img/ (ico, apple-touch, mstile, webmanifest) -->
+  <link rel="icon" href="/img/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" href="/img/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/img/favicon-16x16.png" sizes="16x16">
+  <link rel="apple-touch-icon" href="/img/apple-touch-icon-152x152.png">
+  <link rel="mask-icon" href="/img/favicon-128.png" color="#533afd">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="application-name" content="tinyimg">
+  <meta name="theme-color" content="#533afd">
+  <meta name="msapplication-TileColor" content="#533afd">
+  <meta name="msapplication-TileImage" content="/img/mstile-144x144.png">
+  <meta name="msapplication-square70x70logo" content="/img/mstile-70x70.png">
+  <meta name="msapplication-square150x150logo" content="/img/mstile-150x150.png">
+  <meta name="msapplication-wide310x150logo" content="/img/mstile-310x150.png">
+  <meta name="msapplication-square310x310logo" content="/img/mstile-310x310.png">
+
+  <!-- Open Graph: превью в соцсетях и мессенджерах -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="tinyimg">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:url" content="https://tinyimg.ru/">
+  <meta property="og:title" content="tinyimg — сжатие PNG, JPEG и WebP без потери качества">
+  <meta property="og:description" content="До 80% легче исходника — без потери качества. До 100 МБ на файл, без регистрации, файлы удаляются через час.">
+  <meta property="og:image" content="https://tinyimg.ru/img/og-image.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="tinyimg — сжатие PNG, JPEG и WebP без потери качества">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="tinyimg — сжатие PNG, JPEG и WebP без потери качества">
+  <meta name="twitter:description" content="До 80% легче исходника — без потери качества. До 100 МБ на файл, без регистрации.">
+  <meta name="twitter:image" content="https://tinyimg.ru/img/og-image.png">
+  <meta name="twitter:image:alt" content="tinyimg — сжатие PNG, JPEG и WebP без потери качества">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;500;600&family=Source+Code+Pro:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="container nav-inner">
+    <a class="logo" href="#">tiny<span>img</span></a>
+    <nav class="nav-links">
+      <a href="#quality">Качество</a>
+      <a href="#why">Преимущества</a>
+      <a href="#how">Как работает</a>
+      <a href="#mcp">Для агентов</a>
+    </nav>
+    <a class="btn btn-primary btn-small" href="#tool">Попробовать</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="tool">
+    <div class="container">
+      <h1>Молниеносный сайт<br>начинается с картинок</h1>
+      <p class="hero-sub">
+        Перетащите фотографии, скриншоты или иллюстрации — и заберите файлы
+        в разы легче. Бесплатно, без регистрации и без единого намёка
+        на потерю качества.
+      </p>
+
+      <div class="tool-card">
+        <div class="dropzone" id="dropzone">
+          <svg class="drop-icon" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 13v8"/>
+            <path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"/>
+            <path d="m8 17 4-4 4 4"/>
+          </svg>
+          <p class="drop-title">Перетащите .png, .jpg или .webp сюда</p>
+          <p class="drop-hint">или <label for="file-input" class="file-label">выберите файлы</label> — до 20 штук, каждый до 100 МБ</p>
+          <input type="file" id="file-input" multiple accept=".png,.jpg,.jpeg,.webp,image/png,image/jpeg,image/webp" hidden>
+        </div>
+
+        <div class="file-list" id="file-list" hidden></div>
+
+        <div class="tool-footer" id="tool-footer" hidden>
+          <p class="total" id="total"></p>
+          <button class="btn btn-primary" id="download-all">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 15V3"/><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/>
+            </svg>
+            Скачать всё (zip)
+          </button>
+        </div>
+      </div>
+
+      <div class="stats">
+        <div class="stat"><span class="stat-value">до 80%</span><span class="stat-label">легче исходников</span></div>
+        <div class="stat"><span class="stat-value">5 сек</span><span class="stat-label">и пакет готов</span></div>
+        <div class="stat"><span class="stat-value">20 файлов</span><span class="stat-label">за одну загрузку</span></div>
+        <div class="stat"><span class="stat-value">0 ₽</span><span class="stat-label">навсегда бесплатно</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="quality">
+    <div class="container">
+      <h2>Можете ли вы заметить разницу?</h2>
+      <p class="section-sub">Слева — оригинал, справа — на 60–80% легче. Потяните
+      ползунок: если не найдёте отличий — ваши посетители тоже их не найдут.</p>
+
+      <div class="compare-tabs" id="compare-tabs"></div>
+
+      <div class="compare-card">
+        <div class="compare" id="compare">
+          <img class="compare-img" id="compare-before" src="/demo/photo1-before.jpg" alt="Оригинал" draggable="false">
+          <div class="compare-overlay" id="compare-overlay">
+            <img class="compare-img" id="compare-after" src="/demo/photo1-after.jpg" alt="После сжатия" draggable="false">
+          </div>
+          <div class="compare-handle" id="compare-handle"><span></span></div>
+          <span class="compare-label compare-label-left" id="label-left">Оригинал · 119 КБ</span>
+          <span class="compare-label compare-label-right" id="label-right">Сжато · 43 КБ (−64%)</span>
+        </div>
+        <div class="compare-actions">
+          <a class="btn btn-ghost" id="dl-before" download>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 15V3"/><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/>
+            </svg>
+            Скачать оригинал
+          </a>
+          <a class="btn btn-ghost" id="dl-after" download>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 15V3"/><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/>
+            </svg>
+            Скачать сжатое
+          </a>
+        </div>
+        <p class="compare-credit" id="compare-credit">Фото: Dmytro Koplyk / Unsplash</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="why">
+    <div class="container">
+      <h2>Почему выбирают tinyimg</h2>
+      <div class="cards">
+        <div class="card">
+          <div class="card-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"/>
+              <path d="M20 2v4"/><path d="M22 4h-4"/><circle cx="4" cy="20" r="2"/>
+            </svg>
+          </div>
+          <h3>Разница только в размере</h3>
+          <p>Плавные градиенты, мягкие тени, сочные цвета — всё остаётся на месте.
+          Посетители увидят ровно то, что вы задумали, — просто страница
+          загрузится мгновенно.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M15.914 4a1.5 1.5 0 00-2.474-1.561l-9 9A1.5 1.5 0 005.5 14h4.002a.5.5 0 01.471.666L8.086 20a1.5 1.5 0 002.475 1.56l9-9A1.5 1.5 0 0018.5 10h-3.997a.5.5 0 01-.472-.667z"/>
+            </svg>
+          </div>
+          <h3>Скорость, которую чувствуешь</h3>
+          <p>Пакет из 20 картинок — за считанные секунды. Забросили, забрали —
+          и продолжаете работать. Никаких очередей и ожидания
+          «ещё немного…».</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/>
+              <path d="m9 12 2 2 4-4"/>
+            </svg>
+          </div>
+          <h3>Ваши файлы — только ваши</h3>
+          <p>Картинки удаляются автоматически через час. Без регистрации,
+          без аналитики и без «оставьте почту, мы вам напишем». Честно
+          и по-деловому.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="how">
+    <div class="container">
+      <h2>Три шага до идеальных картинок</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <h3>Перетащите файлы</h3>
+          <p>До 20 штук за раз — фотографии, скриншоты, иллюстрации, логотипы.
+          Всё, что тормозит вашу страницу.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <h3>Несколько секунд</h3>
+          <p>Мы умно сжимаем каждую картинку, сохраняя то, что видит глаз,
+          и убирая то, что видит только вес файла.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <h3>Скачайте результат</h3>
+          <p>По одному файлу или всё сразу zip-архивом — и вперёд,
+          к быстрому сайту.</p>
+        </div>
+      </div>
+      <p class="how-note">Поддерживаем <span class="webp-only">PNG, JPEG и WebP</span><span class="no-webp">PNG и JPEG</span> — без установки, плагинов
+      и аккаунтов.</p>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="mcp">
+    <div class="container container-narrow">
+      <h2>Есть агенты? Дайте им сжатие</h2>
+      <p class="section-sub">tinyimg работает как MCP-сервер: подключите его
+      к любому AI-клиенту — и агент сможет сжимать картинки прямо в чате,
+      без загрузок и лишних копий.</p>
+      <div class="mcp-card">
+        <p class="mcp-label">Подключение в MCP-клиенте (Claude Desktop, Cursor, Windsurf…)</p>
+        <pre class="mcp-code">{"mcpServers": {"tinyimg": {
+  "url": "https://tinyimg.ru/mcp"
+}}}</pre>
+        <p class="mcp-label">Или напрямую</p>
+        <pre class="mcp-code">curl -X POST https://tinyimg.ru/mcp \
+  -H 'Content-Type: application/json' \
+  -d '{"jsonrpc": "2.0", "id": 1,
+       "method": "tools/list"}'</pre>
+        <p class="mcp-note">Удалённым клиентам нужен https. Локальный запуск
+        работает по http.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <p>tinyimg — сжатие <span class="webp-only">PNG, JPEG и WebP</span><span class="no-webp">PNG и JPEG</span> онлайн. Бесплатно, без регистрации, файлы не хранятся.</p>
+  </div>
+</footer>
+
+<script src="/app.js"></script>
+</body>
+</html>

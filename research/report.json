@@ -1,6 +1,6 @@
 [
   {
-    "name": "01-web-ui.jpg",
+    "name": "Components Web App Interface by Golo on Dribbble.jpg",
     "orig_size": 273736,
     "comp_size": 102110,
     "tiny_metrics": {
@@ -19,7 +19,7 @@
     "gate_size_ok": true,
     "gate_ssim_ok": true,
     "jpeg_orig": {
-      "path": "orginal/01-web-ui.jpg",
+      "path": "orginal/Components Web App Interface by Golo on Dribbble.jpg",
       "progressive": false,
       "width": 1600,
       "height": 1200,
@@ -82,7 +82,7 @@
       "est_quality": 87
     },
     "jpeg_comp": {
-      "path": "compressed_by_tinypng/01-web-ui.jpg",
+      "path": "compressed_by_tinypng/Components Web App Interface by Golo on Dribbble.jpg",
       "progressive": true,
       "width": 1600,
       "height": 1200,
@@ -200,7 +200,7 @@
     "best_candidate": ""
   },
   {
-    "name": "02-dashboard-ui.png",
+    "name": "Dashboard UI Elements schedule graph statistics card clean website ui.png",
     "orig_size": 721068,
     "comp_size": 261170,
     "tiny_metrics": {
@@ -219,7 +219,7 @@
     "gate_size_ok": true,
     "gate_ssim_ok": true,
     "png_orig": {
-      "path": "orginal/02-dashboard-ui.png",
+      "path": "orginal/Dashboard UI Elements schedule graph statistics card clean website ui.png",
       "width": 1600,
       "height": 1200,
       "bit_depth": 8,
@@ -339,7 +339,7 @@
       ]
     },
     "png_comp": {
-      "path": "compressed_by_tinypng/02-dashboard-ui.png",
+      "path": "compressed_by_tinypng/Dashboard UI Elements schedule graph statistics card clean website ui.png",
       "width": 1600,
       "height": 1200,
       "bit_depth": 8,
@@ -425,7 +425,7 @@
     "best_candidate": "median-cut 256 + zlib-best + FS-dither"
   },
   {
-    "name": "03-pixel-art-hand.png",
+    "name": "PV_ART_Hand.png",
     "orig_size": 2971419,
     "comp_size": 1037304,
     "tiny_metrics": {
@@ -444,7 +444,7 @@
     "gate_size_ok": true,
     "gate_ssim_ok": true,
     "png_orig": {
-      "path": "orginal/03-pixel-art-hand.png",
+      "path": "orginal/PV_ART_Hand.png",
       "width": 4445,
       "height": 2500,
       "bit_depth": 8,
@@ -1938,7 +1938,7 @@
       ]
     },
     "png_comp": {
-      "path": "compressed_by_tinypng/03-pixel-art-hand.png",
+      "path": "compressed_by_tinypng/PV_ART_Hand.png",
       "width": 4445,
       "height": 2500,
       "bit_depth": 8,
@@ -2028,7 +2028,7 @@
     "best_candidate": "median-cut 256 + zlib-best + FS-dither"
   },
   {
-    "name": "04-pixel-art-sleep.png",
+    "name": "PV_ART_Nyasha_sleep.png",
     "orig_size": 3737107,
     "comp_size": 1197766,
     "tiny_metrics": {
@@ -2047,7 +2047,7 @@
     "gate_size_ok": true,
     "gate_ssim_ok": true,
     "png_orig": {
-      "path": "orginal/04-pixel-art-sleep.png",
+      "path": "orginal/PV_ART_Nyasha_sleep.png",
       "width": 4445,
       "height": 2500,
       "bit_depth": 8,
@@ -3913,7 +3913,7 @@
       ]
     },
     "png_comp": {
-      "path": "compressed_by_tinypng/04-pixel-art-sleep.png",
+      "path": "compressed_by_tinypng/PV_ART_Nyasha_sleep.png",
       "width": 4445,
       "height": 2500,
       "bit_depth": 8,
@@ -4007,7 +4007,7 @@
     "best_candidate": "median-cut 256 + zlib-best + FS-dither"
   },
   {
-    "name": "05-landing-art.png",
+    "name": "WonderKids Landing Page Exploration by Paperpillar on Dribbble.png",
     "orig_size": 2418986,
     "comp_size": 674062,
     "tiny_metrics": {
@@ -4026,7 +4026,7 @@
     "gate_size_ok": true,
     "gate_ssim_ok": true,
     "png_orig": {
-      "path": "orginal/05-landing-art.png",
+      "path": "orginal/WonderKids Landing Page Exploration by Paperpillar on Dribbble.png",
       "width": 3200,
       "height": 2400,
       "bit_depth": 8,
@@ -4074,7 +4074,7 @@
       ]
     },
     "png_comp": {
-      "path": "compressed_by_tinypng/05-landing-art.png",
+      "path": "compressed_by_tinypng/WonderKids Landing Page Exploration by Paperpillar on Dribbble.png",
       "width": 3200,
       "height": 2400,
       "bit_depth": 8,
@@ -4164,7 +4164,7 @@
     "best_candidate": "median-cut 256 + zlib-best + FS-dither"
   },
   {
-    "name": "06-anime-art.png",
+    "name": "catgirl_hoodie_halfzipped_small_chest.png",
     "orig_size": 2407970,
     "comp_size": 580934,
     "tiny_metrics": {
@@ -4183,7 +4183,7 @@
     "gate_size_ok": true,
     "gate_ssim_ok": true,
     "png_orig": {
-      "path": "orginal/06-anime-art.png",
+      "path": "orginal/catgirl_hoodie_halfzipped_small_chest.png",
       "width": 1024,
       "height": 1536,
       "bit_depth": 8,
@@ -4373,7 +4373,7 @@
       ]
     },
     "png_comp": {
-      "path": "compressed_by_tinypng/06-anime-art.png",
+      "path": "compressed_by_tinypng/catgirl_hoodie_halfzipped_small_chest.png",
       "width": 1024,
       "height": 1536,
       "bit_depth": 8,
@@ -4463,7 +4463,7 @@
     "best_candidate": "median-cut 256 + zlib-best + FS-dither"
   },
   {
-    "name": "07-photo.jpg",
+    "name": "photo_2026-11-06 20.37.22.jpeg",
     "orig_size": 115060,
     "comp_size": 99478,
     "tiny_metrics": {
@@ -4482,7 +4482,7 @@
     "gate_size_ok": true,
     "gate_ssim_ok": true,
     "jpeg_orig": {
-      "path": "orginal/07-photo.jpg",
+      "path": "orginal/photo_2026-11-06 20.37.22.jpeg",
       "progressive": true,
       "width": 1024,
       "height": 1024,
@@ -4533,12 +4533,12 @@
       "est_quality": 44
     },
     "jpeg_comp": {
-      "path": "compressed_by_tinypng/07-photo.jpg",
+      "path": "compressed_by_tinypng/photo_2026-11-06 20.37.22.jpeg",
       "progressive": true,
       "width": 1024,
       "height": 1024,
       "components": 3,
-      "sampling": "4:4:4",
+      "sampling": "4:2:0",
       "markers": [
         {
           "type": "APP0/JFIF",

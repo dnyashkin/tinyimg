@@ -137,6 +137,12 @@ type palIndex struct {
 	cache map[[4]uint8]uint8
 }
 
+// palCacheMax — потолок кэша повторных цветов. Кэш — чистая мемоизация
+// (на результат не влияет), а в дизеринг-пути возмущённые цвета почти не
+// повторяются: без потолка map росла до O(пикселей) — сотни МБ на большом
+// PNG и map-вставка на каждый пиксель. За потолком просто идём в дерево.
+const palCacheMax = 1 << 16
+
 func newPalIndex(pal [][4]uint8) *palIndex {
 	return &palIndex{root: buildKD(pal), cache: make(map[[4]uint8]uint8, 1<<14)}
 }
@@ -146,6 +152,8 @@ func (pi *palIndex) nearest(p [4]uint8) uint8 {
 		return i
 	}
 	i, _ := pi.root.query(p, 0, 1<<30)
-	pi.cache[p] = i
+	if len(pi.cache) < palCacheMax {
+		pi.cache[p] = i
+	}
 	return i
 }

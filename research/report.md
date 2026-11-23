@@ -1,9 +1,6 @@
 # Исследование сжатия изображений: TinyPNG vs алгоритм на Go
 
-_Сгенерировано: 06.11.2026 22:20, инструмент: `research/tool` (чистый Go, stdlib)._
-
-Имена файлов корпуса обезличены (тип изображения сохранён в названии), сами
-картинки в репозиторий не входят.
+_Сгенерировано: 24.11.2026 00:25, инструмент: `research/tool` (чистый Go, stdlib)._
 
 Методика: каждая пара «оригинал → результат TinyPNG» разбирается на уровне формата
 (PNG-чанки, JPEG-маркеры, квант-таблицы, фильтры строк), считаются метрики качества
@@ -17,45 +14,45 @@ _Сгенерировано: 06.11.2026 22:20, инструмент: `research/t
 
 | Файл | Цвет. модель до → после | Палитра (записей) | Метаданные | IDAT сжатие | Фильтры строк (N/S/U/A/P) |
 |------|------------------------|-------------------|------------|-------------|---------------------------|
-| 02-dashboard-ui.png | truecolor+alpha → indexed (palette) | 255 | нет | 13.55% | 1200/0/0/0/0 |
-| 03-pixel-art-hand.png | truecolor+alpha → indexed (palette) | 256 | удалены (1) | 9.32% | 2500/0/0/0/0 |
-| 04-pixel-art-sleep.png | truecolor+alpha → indexed (palette) | 256 | удалены (1) | 10.77% | 2500/0/0/0/0 |
-| 05-landing-art.png | truecolor+alpha → indexed (palette) | 256 | нет | 8.76% | 2400/0/0/0/0 |
-| 06-anime-art.png | truecolor RGB → indexed (palette) | 256 | удалены (1) | 36.84% | 1536/0/0/0/0 |
+| Dashboard UI Elements schedule graph statistics card clean website ui.png | truecolor+alpha → indexed (palette) | 255 | нет | 13.55% | 1200/0/0/0/0 |
+| PV_ART_Hand.png | truecolor+alpha → indexed (palette) | 256 | удалены (1) | 9.32% | 2500/0/0/0/0 |
+| PV_ART_Nyasha_sleep.png | truecolor+alpha → indexed (palette) | 256 | удалены (1) | 10.77% | 2500/0/0/0/0 |
+| WonderKids Landing Page Exploration by Paperpillar on Dribbble.png | truecolor+alpha → indexed (palette) | 256 | нет | 8.76% | 2400/0/0/0/0 |
+| catgirl_hoodie_halfzipped_small_chest.png | truecolor RGB → indexed (palette) | 256 | удалены (1) | 36.84% | 1536/0/0/0/0 |
 
 Чанки TinyPNG-версии по файлам:
 
-- `02-dashboard-ui.png`: IHDR(13), PLTE(765), IDAT(260336), IEND(0)
-- `03-pixel-art-hand.png`: IHDR(13), PLTE(768), IDAT(524287), IDAT(512168), IEND(0)
-- `04-pixel-art-sleep.png`: IHDR(13), PLTE(768), IDAT(524287), IDAT(524287), IDAT(148331), IEND(0)
-- `05-landing-art.png`: IHDR(13), PLTE(768), IDAT(524287), IDAT(148926), IEND(0)
-- `06-anime-art.png`: IHDR(13), PLTE(768), IDAT(524287), IDAT(55798), IEND(0)
+- `Dashboard UI Elements schedule graph statistics card clean website ui.png`: IHDR(13), PLTE(765), IDAT(260336), IEND(0)
+- `PV_ART_Hand.png`: IHDR(13), PLTE(768), IDAT(524287), IDAT(512168), IEND(0)
+- `PV_ART_Nyasha_sleep.png`: IHDR(13), PLTE(768), IDAT(524287), IDAT(524287), IDAT(148331), IEND(0)
+- `WonderKids Landing Page Exploration by Paperpillar on Dribbble.png`: IHDR(13), PLTE(768), IDAT(524287), IDAT(148926), IEND(0)
+- `catgirl_hoodie_halfzipped_small_chest.png`: IHDR(13), PLTE(768), IDAT(524287), IDAT(55798), IEND(0)
 
 ### JPEG
 
 | Файл | Режим | Субдискретизация | ~качество (по квант-таблицам) | Маркеры после |
 |------|-------|------------------|-------------------------------|---------------|
-| 01-web-ui.jpg | progressive | 4:4:4 | 27 | APP0/JFIF, DQT, DQT, SOF2 progressive, DHT, DHT, SOS |
-| 07-photo.jpg | progressive | 4:4:4 | 29 | APP0/JFIF, DQT, DQT, SOF2 progressive, DHT, DHT, SOS |
+| Components Web App Interface by Golo on Dribbble.jpg | progressive | 4:4:4 | 27 | APP0/JFIF, DQT, DQT, SOF2 progressive, DHT, DHT, SOS |
+| photo_2026-11-06 20.37.22.jpeg | progressive | 4:2:0 | 29 | APP0/JFIF, DQT, DQT, SOF2 progressive, DHT, DHT, SOS |
 
 ## 2. Размеры и качество результата TinyPNG
 
 | Файл | Было | Стало | Экономия | PSNR | SSIM | Уник. цветов до → после |
 |------|------|-------|----------|------|------|-------------------------|
-| 01-web-ui.jpg | 0.26 МБ | 99.7 КБ | −62.7% | 32.17 дБ | 0.9939 | 52063 → 66265 |
-| 02-dashboard-ui.png | 0.69 МБ | 255.0 КБ | −63.8% | 45.86 дБ | 0.9988 | 16771 → 255 |
-| 03-pixel-art-hand.png | 2.83 МБ | 1013.0 КБ | −65.1% | 39.89 дБ | 0.9910 | 88338 → 256 |
-| 04-pixel-art-sleep.png | 3.56 МБ | 1169.7 КБ | −67.9% | 36.86 дБ | 0.9842 | 127959 → 256 |
-| 05-landing-art.png | 2.31 МБ | 658.3 КБ | −72.1% | 39.77 дБ | 0.9966 | 66233 → 256 |
-| 06-anime-art.png | 2.30 МБ | 567.3 КБ | −75.9% | 31.73 дБ | 0.9646 | 381375 → 256 |
-| 07-photo.jpg | 0.11 МБ | 97.1 КБ | −13.5% | 35.36 дБ | 0.9914 | 77489 → 81817 |
+| Components Web App Interface by Golo on Dribbble.jpg | 0.26 МБ | 99.7 КБ | −62.7% | 32.17 дБ | 0.9939 | 52063 → 66265 |
+| Dashboard UI Elements schedule graph statistics card clean website ui.png | 0.69 МБ | 255.0 КБ | −63.8% | 45.86 дБ | 0.9988 | 16771 → 255 |
+| PV_ART_Hand.png | 2.83 МБ | 1013.0 КБ | −65.1% | 39.89 дБ | 0.9910 | 88338 → 256 |
+| PV_ART_Nyasha_sleep.png | 3.56 МБ | 1169.7 КБ | −67.9% | 36.86 дБ | 0.9842 | 127959 → 256 |
+| WonderKids Landing Page Exploration by Paperpillar on Dribbble.png | 2.31 МБ | 658.3 КБ | −72.1% | 39.77 дБ | 0.9966 | 66233 → 256 |
+| catgirl_hoodie_halfzipped_small_chest.png | 2.30 МБ | 567.3 КБ | −75.9% | 31.73 дБ | 0.9646 | 381375 → 256 |
+| photo_2026-11-06 20.37.22.jpeg | 0.11 МБ | 97.1 КБ | −13.5% | 35.36 дБ | 0.9914 | 77489 → 81817 |
 
 ## 3. Наш алгоритм на Go против TinyPNG
 
 Реализация: median-cut квантизация палитры (256/128/64 цветов),
 дизеринг Флойда–Стейнберга (опционально), палитровый PNG, BestCompression, без метаданных.
 
-### 02-dashboard-ui.png (TinyPNG: 255.0 КБ, PSNR 45.86 дБ)
+### Dashboard UI Elements schedule graph statistics card clean website ui.png (TinyPNG: 255.0 КБ, PSNR 45.86 дБ)
 
 | Вариант | Размер | Δ к TinyPNG | PSNR | SSIM |
 |---------|--------|-------------|------|------|
@@ -68,7 +65,7 @@ _Сгенерировано: 06.11.2026 22:20, инструмент: `research/t
 
 _Лучший по критерию «размер при PSNR не хуже TinyPNG»: **median-cut 256 + zlib-best + FS-dither**._
 
-### 03-pixel-art-hand.png (TinyPNG: 1013.0 КБ, PSNR 39.89 дБ)
+### PV_ART_Hand.png (TinyPNG: 1013.0 КБ, PSNR 39.89 дБ)
 
 | Вариант | Размер | Δ к TinyPNG | PSNR | SSIM |
 |---------|--------|-------------|------|------|
@@ -81,7 +78,7 @@ _Лучший по критерию «размер при PSNR не хуже Tin
 
 _Лучший по критерию «размер при PSNR не хуже TinyPNG»: **median-cut 256 + zlib-best + FS-dither**._
 
-### 04-pixel-art-sleep.png (TinyPNG: 1169.7 КБ, PSNR 36.86 дБ)
+### PV_ART_Nyasha_sleep.png (TinyPNG: 1169.7 КБ, PSNR 36.86 дБ)
 
 | Вариант | Размер | Δ к TinyPNG | PSNR | SSIM |
 |---------|--------|-------------|------|------|
@@ -94,7 +91,7 @@ _Лучший по критерию «размер при PSNR не хуже Tin
 
 _Лучший по критерию «размер при PSNR не хуже TinyPNG»: **median-cut 256 + zlib-best + FS-dither**._
 
-### 05-landing-art.png (TinyPNG: 658.3 КБ, PSNR 39.77 дБ)
+### WonderKids Landing Page Exploration by Paperpillar on Dribbble.png (TinyPNG: 658.3 КБ, PSNR 39.77 дБ)
 
 | Вариант | Размер | Δ к TinyPNG | PSNR | SSIM |
 |---------|--------|-------------|------|------|
@@ -107,7 +104,7 @@ _Лучший по критерию «размер при PSNR не хуже Tin
 
 _Лучший по критерию «размер при PSNR не хуже TinyPNG»: **median-cut 256 + zlib-best + FS-dither**._
 
-### 06-anime-art.png (TinyPNG: 567.3 КБ, PSNR 31.73 дБ)
+### catgirl_hoodie_halfzipped_small_chest.png (TinyPNG: 567.3 КБ, PSNR 31.73 дБ)
 
 | Вариант | Размер | Δ к TinyPNG | PSNR | SSIM |
 |---------|--------|-------------|------|------|
@@ -120,7 +117,7 @@ _Лучший по критерию «размер при PSNR не хуже Tin
 
 _Лучший по критерию «размер при PSNR не хуже TinyPNG»: **median-cut 256 + zlib-best + FS-dither**._
 
-### 01-web-ui.jpg (JPEG, TinyPNG: 99.7 КБ)
+### Components Web App Interface by Golo on Dribbble.jpg (JPEG, TinyPNG: 99.7 КБ)
 
 Прогон качества stdlib-энкодера (baseline, без mozjpeg); для изображений >8 Мп метрики по подвыборке 2×:
 
@@ -136,7 +133,7 @@ _Лучший по критерию «размер при PSNR не хуже Tin
 | image/jpeg q=90 | 185.3 КБ | +85.8% | 33.69 дБ | 1.0000 |
 | image/jpeg q=95 | 242.5 КБ | +143.2% | 34.54 дБ | 1.0000 |
 
-### 07-photo.jpg (JPEG, TinyPNG: 97.1 КБ)
+### photo_2026-11-06 20.37.22.jpeg (JPEG, TinyPNG: 97.1 КБ)
 
 Прогон качества stdlib-энкодера (baseline, без mozjpeg); для изображений >8 Мп метрики по подвыборке 2×:
 
@@ -158,13 +155,13 @@ _Лучший по критерию «размер при PSNR не хуже Tin
 
 | Файл | Наш размер | Δ к TinyPNG | Наш PSNR | Наш SSIM | TinyPNG SSIM | Гейт размера | Гейт SSIM |
 |------|------------|-------------|----------|----------|--------------|--------------|-----------|
-| 01-web-ui.jpg | 93.2 КБ | -6.6% | 29.64 дБ | 0.9930 | 0.9939 | ✓ | ✓ |
-| 02-dashboard-ui.png | 217.1 КБ | -14.9% | 39.43 дБ | 0.9861 | 0.9988 | ✓ | ✓ |
-| 03-pixel-art-hand.png | 1142.6 КБ | +12.8% | 37.57 дБ | 0.9850 | 0.9910 | ✓ | ✓ |
-| 04-pixel-art-sleep.png | 1382.9 КБ | +18.2% | 33.95 дБ | 0.9805 | 0.9842 | ✓ | ✓ |
-| 05-landing-art.png | 672.4 КБ | +2.1% | 36.49 дБ | 0.9911 | 0.9966 | ✓ | ✓ |
-| 06-anime-art.png | 594.1 КБ | +4.7% | 28.98 дБ | 0.9544 | 0.9646 | ✓ | ✓ |
-| 07-photo.jpg | 97.6 КБ | +0.5% | 31.10 дБ | 0.9787 | 0.9914 | ✓ | ✓ |
+| Components Web App Interface by Golo on Dribbble.jpg | 93.2 КБ | -6.6% | 29.64 дБ | 0.9930 | 0.9939 | ✓ | ✓ |
+| Dashboard UI Elements schedule graph statistics card clean website ui.png | 217.1 КБ | -14.9% | 39.43 дБ | 0.9861 | 0.9988 | ✓ | ✓ |
+| PV_ART_Hand.png | 1142.6 КБ | +12.8% | 37.57 дБ | 0.9850 | 0.9910 | ✓ | ✓ |
+| PV_ART_Nyasha_sleep.png | 1382.9 КБ | +18.2% | 33.95 дБ | 0.9805 | 0.9842 | ✓ | ✓ |
+| WonderKids Landing Page Exploration by Paperpillar on Dribbble.png | 672.4 КБ | +2.1% | 36.49 дБ | 0.9911 | 0.9966 | ✓ | ✓ |
+| catgirl_hoodie_halfzipped_small_chest.png | 594.1 КБ | +4.7% | 28.98 дБ | 0.9544 | 0.9646 | ✓ | ✓ |
+| photo_2026-11-06 20.37.22.jpeg | 97.6 КБ | +0.5% | 31.10 дБ | 0.9787 | 0.9914 | ✓ | ✓ |
 
 **Вердикт: 7/7 пар проходят оба гейта.**
 

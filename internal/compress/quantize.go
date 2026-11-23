@@ -104,11 +104,12 @@ func medianCut(pixels [][4]uint8, maxColors int) [][4]uint8 {
 // lloydRefine — несколько итераций Ллойда: двигаем цвета палитры к центроидам
 // своих кластеров (по гистограмме уникальных цветов с весами), ошибка
 // квантования падает, SSIM растёт. Размер почти не меняется.
-func lloydRefine(pixels [][4]uint8, pal [][4]uint8, iters int) [][4]uint8 {
-	hist := make(map[[4]uint8]int, 1<<14)
-	for _, p := range pixels {
-		hist[p]++
-	}
+//
+// Ранняя остановка точная, а не по эпсилону: если назначения кластеров
+// совпали с прошлой итерацией, то и центроиды пересчитаются в те же
+// значения — дальнейшие итерации ничего не меняют (палитра на выходе
+// идентична полному прогону, поведенческая нейтральность сохранена).
+func lloydRefine(hist map[[4]uint8]int, pal [][4]uint8, iters int) [][4]uint8 {
 	colors := make([][4]uint8, 0, len(hist))
 	weights := make([]int, 0, len(hist))
 	for c, n := range hist {
@@ -116,12 +117,15 @@ func lloydRefine(pixels [][4]uint8, pal [][4]uint8, iters int) [][4]uint8 {
 		weights = append(weights, n)
 	}
 	pal = append([][4]uint8(nil), pal...)
+	assign := make([]uint8, len(colors))
+	prev := make([]uint8, len(colors))
 	for it := 0; it < iters; it++ {
 		pi := newPalIndex(pal) // палитра меняется — дерево перестраиваем
 		sums := make([][4]float64, len(pal))
 		counts := make([]float64, len(pal))
 		for i, c := range colors {
 			idx := int(pi.nearest(c))
+			assign[i] = uint8(idx)
 			w := float64(weights[i])
 			// Считаем в перцептуальном пространстве (см. kd.go) —
 			// среднее в сыром sRGB размывает тёмные ступени.
@@ -140,6 +144,21 @@ func lloydRefine(pixels [][4]uint8, pal [][4]uint8, iters int) [][4]uint8 {
 			pal[j][2] = fromPerc(sums[j][2] / counts[j])
 			pal[j][3] = uint8(sums[j][3]/counts[j] + 0.5)
 		}
+		// Палитра уже пересчитана в стабильное состояние: если назначения
+		// не изменились, следующие итерации повторили бы её точно.
+		if it > 0 && equalAssign(assign, prev) {
+			break
+		}
+		assign, prev = prev, assign
 	}
 	return pal
+}
+
+func equalAssign(a, b []uint8) bool {
+	for i := range a {
+		if a[i] != b[i] {
+			return false
+		}
+	}
+	return true
 }

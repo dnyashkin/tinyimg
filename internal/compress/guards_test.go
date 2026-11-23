@@ -115,8 +115,10 @@ func TestPNG16BitStaysLossless(t *testing.T) {
 	if r.Err != nil {
 		t.Fatalf("File: %v", r.Err)
 	}
-	if !strings.Contains(r.Strategy, "16-бит") {
-		t.Fatalf("стратегия должна помечать 16-битный путь: %q", r.Strategy)
+	// Допустимы оба исхода: переупак (если он меньше входа) либо гард
+	// «уже оптимален» — в обоих случаях выход остаётся 16-битным lossless.
+	if !strings.Contains(r.Strategy, "16-бит") && !strings.Contains(r.Strategy, "уже оптимален") {
+		t.Fatalf("стратегия должна помечать 16-битный путь или гард оптимальности: %q", r.Strategy)
 	}
 	out, err := os.ReadFile(dst)
 	if err != nil {
@@ -147,5 +149,43 @@ func TestPNG16BitStaysLossless(t *testing.T) {
 		if got != chk.c {
 			t.Fatalf("пиксель (%d,%d): %v != %v", chk.x, chk.y, got, chk.c)
 		}
+	}
+}
+
+// TestPNGNeverGrows — гард «не раздувать»: повторный прогон уже сжатого
+// нами PNG не имеет права раздувать файл (идемпотентность, как у JPEG/WebP).
+// До гарда повторное сжатие палитрового выхода добавляло +4…+10%.
+func TestPNGNeverGrows(t *testing.T) {
+	dir := t.TempDir()
+	src := filepath.Join(dir, "art.png")
+
+	// Градиент с альфой: >256 цветов, уходит в палитровый путь с дизерингом.
+	img := image.NewNRGBA(image.Rect(0, 0, 128, 128))
+	for y := 0; y < 128; y++ {
+		for x := 0; x < 128; x++ {
+			img.SetNRGBA(x, y, color.NRGBA{
+				R: uint8((x*2 + y) % 256), G: uint8((x + y*3) % 256),
+				B: uint8((x*x + y) % 256), A: uint8(192 + (x+y)%64),
+			})
+		}
+	}
+	var buf bytes.Buffer
+	if err := png.Encode(&buf, img); err != nil {
+		t.Fatal(err)
+	}
+	if err := os.WriteFile(src, buf.Bytes(), 0o644); err != nil {
+		t.Fatal(err)
+	}
+
+	first := File(src, filepath.Join(dir, "pass1.png"), Options{Dither: -1})
+	if first.Err != nil {
+		t.Fatalf("первый прогон: %v", first.Err)
+	}
+	second := File(filepath.Join(dir, "pass1.png"), filepath.Join(dir, "pass2.png"), Options{Dither: -1})
+	if second.Err != nil {
+		t.Fatalf("второй прогон: %v", second.Err)
+	}
+	if second.After > second.Before {
+		t.Fatalf("повторный прогон раздул файл: %d -> %d", second.Before, second.After)
 	}
 }

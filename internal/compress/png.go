@@ -45,6 +45,14 @@ func compressPNG(src, dst string, opts Options, stage *stageLogger) (before, aft
 		if opts.Squeeze {
 			lossless = repackPNG(lossless)
 		}
+		if len(lossless) >= len(raw) {
+			// Уже оптимален (часто после TinyPNG): раздувать нельзя —
+			// тот же гард, что у JPEG/WebP, иначе повторный прогон растит файл.
+			if err := writeOut(dst, raw); err != nil {
+				return 0, 0, "", err
+			}
+			return before, before, "уже оптимален (не трогаем)", nil
+		}
 		if err := writeOut(dst, lossless); err != nil {
 			return 0, 0, "", err
 		}
@@ -52,25 +60,25 @@ func compressPNG(src, dst string, opts Options, stage *stageLogger) (before, aft
 	}
 	b := img.Bounds()
 	w, h := b.Dx(), b.Dy()
-	get := func(x, y int) [4]uint8 {
-		c := color.NRGBAModel.Convert(img.At(b.Min.X+x, b.Min.Y+y)).(color.NRGBA)
-		return [4]uint8{c.R, c.G, c.B, c.A}
-	}
 
-	// Сколько уникальных цветов — решает стратегию.
+	// Сколько уникальных цветов — решает стратегию. Гистограмма с весами
+	// (а не set): тот же проход кормит и итерации Ллойда ниже — одна map
+	// на весь файл вместо двух полных построений.
 	t2 := time.Now()
 	pixels := make([][4]uint8, w*h)
-	unique := make(map[[4]uint8]struct{}, 1<<16)
+	hist := make(map[[4]uint8]int, 1<<16)
 	for y := 0; y < h; y++ {
 		for x := 0; x < w; x++ {
-			p := get(x, y)
+			c := color.NRGBAModel.Convert(img.At(b.Min.X+x, b.Min.Y+y)).(color.NRGBA)
+			p := [4]uint8{c.R, c.G, c.B, c.A}
 			pixels[y*w+x] = p
-			unique[p] = struct{}{}
+			hist[p]++
 		}
 	}
-	stage.log("pixels+unique", t2)
+	stage.log("pixels+hist", t2)
+	unique := len(hist)
 
-	if len(unique) <= 256 {
+	if unique <= 256 {
 		// Палитра без потерь: идеальное качество + палитровое сжатие.
 		// Сравниваем с lossless-переупаком (Default: проба должна быть дешёвой —
 		// BestCompression на фотошных данных ест минуты).
@@ -80,7 +88,7 @@ func compressPNG(src, dst string, opts Options, stage *stageLogger) (before, aft
 			return 0, 0, "", err
 		}
 		stage.log("lossless-encode", t1)
-		palImg := buildPaletted(w, h, get, paletteFrom(unique), 0, 0, 0)
+		palImg := buildPaletted(w, h, pixels, paletteFrom(hist), 0, 0, 0)
 		palBytes, err := encodeBest(palImg)
 		if err == nil && len(palBytes) < len(lossless) {
 			lossless = palBytes
@@ -90,6 +98,13 @@ func compressPNG(src, dst string, opts Options, stage *stageLogger) (before, aft
 		}
 		if opts.Squeeze {
 			lossless = repackPNG(lossless)
+		}
+		if len(lossless) >= len(raw) {
+			// Гард «не раздувать»: уже оптимальный файл остаётся как есть.
+			if err := writeOut(dst, raw); err != nil {
+				return 0, 0, "", err
+			}
+			return before, before, "уже оптимален (не трогаем)", nil
 		}
 		if err := writeOut(dst, lossless); err != nil {
 			return 0, 0, "", err
@@ -103,7 +118,7 @@ func compressPNG(src, dst string, opts Options, stage *stageLogger) (before, aft
 	// не замечает.
 	t3 := time.Now()
 	pal := medianCut(pixels, 256)
-	pal = lloydRefine(pixels, pal, 12)
+	pal = lloydRefine(hist, pal, 12)
 	stage.log("quantize", t3)
 	strength := opts.Dither
 	if strength < 0 {
@@ -116,7 +131,7 @@ func compressPNG(src, dst string, opts Options, stage *stageLogger) (before, aft
 		clamp = 9
 	}
 	t4 := time.Now()
-	palImg := buildPaletted(w, h, get, pal, strength, clamp, opts.EntropyTie)
+	palImg := buildPaletted(w, h, pixels, pal, strength, clamp, opts.EntropyTie)
 	stage.log("map-pixels", t4)
 	t5 := time.Now()
 	palBytes, err := encodeBest(palImg)
@@ -129,22 +144,33 @@ func compressPNG(src, dst string, opts Options, stage *stageLogger) (before, aft
 	// палитрового результата (качество 100% почти даром). Пробуем только
 	// при ≤4096 уникальных цветов: на фотошных данных пережатие без потерь
 	// заведомо проигрывает палитре в разы, а проба стоит десятки секунд.
-	if len(unique) <= 4096 {
+	// Переупак, раздувающий вход, нам не нужен независимо от палитры.
+	if unique <= 4096 {
 		t1 := time.Now()
 		lossless, err := encodePNG(img, png.DefaultCompression)
 		stage.log("lossless-encode", t1)
-		if err == nil && float64(len(lossless)) <= 1.2*float64(len(palBytes)) {
+		if err == nil && len(lossless) < len(raw) && float64(len(lossless)) <= 1.2*float64(len(palBytes)) {
 			if opts.Squeeze {
 				lossless = repackPNG(lossless)
 			}
-			if err := writeOut(dst, lossless); err != nil {
-				return 0, 0, "", err
+			if len(lossless) < len(raw) { // squeeze мог «не помочь» и вернуть вход
+				if err := writeOut(dst, lossless); err != nil {
+					return 0, 0, "", err
+				}
+				return before, int64(len(lossless)), "lossless (переупак)", nil
 			}
-			return before, int64(len(lossless)), "lossless (переупак)", nil
 		}
 	}
 	if opts.Squeeze {
 		palBytes = repackPNG(palBytes)
+	}
+	if len(palBytes) >= len(raw) {
+		// Гард «не раздувать» (как у JPEG/WebP): исходник лучше любого
+		// кандидата — отдаём его байт-в-байт, повторный прогон не растит файл.
+		if err := writeOut(dst, raw); err != nil {
+			return 0, 0, "", err
+		}
+		return before, before, "уже оптимален (не трогаем)", nil
 	}
 	if err := writeOut(dst, palBytes); err != nil {
 		return 0, 0, "", err
@@ -179,9 +205,9 @@ func encodePNG(img image.Image, level png.CompressionLevel) ([]byte, error) {
 	return buf.Bytes(), nil
 }
 
-func paletteFrom(unique map[[4]uint8]struct{}) [][4]uint8 {
-	pal := make([][4]uint8, 0, len(unique))
-	for p := range unique {
+func paletteFrom(hist map[[4]uint8]int) [][4]uint8 {
+	pal := make([][4]uint8, 0, len(hist))
+	for p := range hist {
 		pal = append(pal, p)
 	}
 	return pal
@@ -192,10 +218,10 @@ func paletteFrom(unique map[[4]uint8]struct{}) [][4]uint8 {
 // шумить прозрачность нельзя, это рвёт края наклеек).
 // tie > 0 — энтропийный tie-break: при почти равных цветах палитры берём
 // индекс левого/верхнего соседа (усиливает LZ77-матчи в deflate).
-func buildPaletted(w, h int, get func(x, y int) [4]uint8, pal [][4]uint8, strength float64, clamp int, tie float64) *image.Paletted {
+func buildPaletted(w, h int, pixels [][4]uint8, pal [][4]uint8, strength float64, clamp int, tie float64) *image.Paletted {
 	palCol := make(color.Palette, len(pal))
 	for i, p := range pal {
-		// color.NRGBA — прямые (не premultiplied) значения, как в get().
+		// color.NRGBA — прямые (не premultiplied) значения, как в pixels.
 		palCol[i] = color.NRGBA{p[0], p[1], p[2], p[3]}
 	}
 	img := image.NewPaletted(image.Rect(0, 0, w, h), palCol)
@@ -204,7 +230,7 @@ func buildPaletted(w, h int, get func(x, y int) [4]uint8, pal [][4]uint8, streng
 	if strength <= 0 {
 		for y := 0; y < h; y++ {
 			for x := 0; x < w; x++ {
-				img.SetColorIndex(x, y, pi.nearest(get(x, y)))
+				img.SetColorIndex(x, y, pi.nearest(pixels[y*w+x]))
 			}
 		}
 		return img
@@ -225,7 +251,7 @@ func buildPaletted(w, h int, get func(x, y int) [4]uint8, pal [][4]uint8, streng
 			if i > 0 {
 				leftIdx = int(img.Pix[y*img.Stride+start+(i-1)*dir])
 			}
-			p := get(x, y)
+			p := pixels[y*w+x]
 			var cur4 [4]uint8
 			for c := 0; c < 3; c++ {
 				v := float64(p[c]) + cur[x+1][c]

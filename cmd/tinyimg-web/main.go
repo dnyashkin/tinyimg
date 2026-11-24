@@ -419,7 +419,7 @@ func (s *server) compressUpload(f multipart.File, name string) (*result, error) 
 	// squeeze: лосслесс-переупаковка IDAT через zopfli (−6…−7% к размеру) —
 	// только для мелких файлов: кодирование стоит ~×25, и на больших файлах
 	// пользователь ждал бы десятки секунд ради копейки.
-	opts := compress.Options{Dither: -1} // auto: 0.6/9
+	opts := compress.Options{Dither: -1} // auto: 0.5/8
 	if fi, err := os.Stat(src); err == nil && fi.Size() < 500<<10 {
 		opts.Squeeze = true
 	}

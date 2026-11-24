@@ -32,3 +32,8 @@ go.work.sum
 # Editor/IDE
 # .idea/
 # .vscode/
+
+# локальная страница сравнения: копии корпуса и результаты прогонов
+research/compare/original/
+research/compare/out/
+research/compare/preview.png

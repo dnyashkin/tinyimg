@@ -1,6 +1,6 @@
 # Исследование сжатия изображений: TinyPNG vs алгоритм на Go
 
-_Сгенерировано: 24.11.2026 00:25, инструмент: `research/tool` (чистый Go, stdlib)._
+_Сгенерировано: 24.11.2026 18:10, инструмент: `research/tool` (чистый Go, stdlib)._
 
 Методика: каждая пара «оригинал → результат TinyPNG» разбирается на уровне формата
 (PNG-чанки, JPEG-маркеры, квант-таблицы, фильтры строк), считаются метрики качества
@@ -156,12 +156,12 @@ _Лучший по критерию «размер при PSNR не хуже Tin
 | Файл | Наш размер | Δ к TinyPNG | Наш PSNR | Наш SSIM | TinyPNG SSIM | Гейт размера | Гейт SSIM |
 |------|------------|-------------|----------|----------|--------------|--------------|-----------|
 | Components Web App Interface by Golo on Dribbble.jpg | 93.2 КБ | -6.6% | 29.64 дБ | 0.9930 | 0.9939 | ✓ | ✓ |
-| Dashboard UI Elements schedule graph statistics card clean website ui.png | 217.1 КБ | -14.9% | 39.43 дБ | 0.9861 | 0.9988 | ✓ | ✓ |
-| PV_ART_Hand.png | 1142.6 КБ | +12.8% | 37.57 дБ | 0.9850 | 0.9910 | ✓ | ✓ |
-| PV_ART_Nyasha_sleep.png | 1382.9 КБ | +18.2% | 33.95 дБ | 0.9805 | 0.9842 | ✓ | ✓ |
-| WonderKids Landing Page Exploration by Paperpillar on Dribbble.png | 672.4 КБ | +2.1% | 36.49 дБ | 0.9911 | 0.9966 | ✓ | ✓ |
-| catgirl_hoodie_halfzipped_small_chest.png | 594.1 КБ | +4.7% | 28.98 дБ | 0.9544 | 0.9646 | ✓ | ✓ |
-| photo_2026-11-06 20.37.22.jpeg | 97.6 КБ | +0.5% | 31.10 дБ | 0.9787 | 0.9914 | ✓ | ✓ |
+| Dashboard UI Elements schedule graph statistics card clean website ui.png | 245.1 КБ | -3.9% | 42.34 дБ | 0.9960 | 0.9988 | ✓ | ✓ |
+| PV_ART_Hand.png | 1052.6 КБ | +3.9% | 38.27 дБ | 0.9919 | 0.9910 | ✓ | ✓ |
+| PV_ART_Nyasha_sleep.png | 1220.0 КБ | +4.3% | 34.48 дБ | 0.9868 | 0.9842 | ✓ | ✓ |
+| WonderKids Landing Page Exploration by Paperpillar on Dribbble.png | 653.6 КБ | -0.7% | 37.35 дБ | 0.9950 | 0.9966 | ✓ | ✓ |
+| catgirl_hoodie_halfzipped_small_chest.png | 604.1 КБ | +6.5% | 30.35 дБ | 0.9675 | 0.9646 | ✓ | ✓ |
+| photo_2026-11-06 20.37.22.jpeg | 112.4 КБ | +15.7% | +Inf дБ | 1.0000 | 0.9914 | ✓ | ✓ |
 
 **Вердикт: 7/7 пар проходят оба гейта.**
 

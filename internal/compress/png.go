@@ -114,22 +114,23 @@ func compressPNG(src, dst string, opts Options, stage *stageLogger) (before, aft
 	}
 
 	// Палитровая квантизация ≤256 (median-cut + Ллойд).
-	// Дизеринг: auto — мягкий (0.4) для всех: без него ступеньки видны на
-	// любых плавных градиентах, а дозированный шум (clamp ±6) глаз почти
-	// не замечает.
+	// Дизеринг auto: сила 0.5, clamp ±8 — подобрано по корпусу вместе со
+	// взвешенным сплитом median-cut (см. boxPopExp в quantize.go): лесенка
+	// на градиентах размывается, шум остаётся ниже порога заметности, и
+	// размер фото-PNG держится в гейте против TinyPNG.
 	t3 := time.Now()
 	pal := medianCut(pixels, 256)
 	pal = lloydRefine(hist, pal, 12)
 	stage.log("quantize", t3)
 	strength := opts.Dither
 	if strength < 0 {
-		strength = 0.6 // auto: сильный дозированный шум — иначе «лесенка»
+		strength = 0.5 // auto: дозированный шум — иначе «лесенка»
 		// на крупных градиентах (сравнение с TinyPNG по bias-метрике,
 		// см. README «Как сжимает»).
 	}
 	clamp := opts.Clamp
 	if clamp <= 0 {
-		clamp = 9
+		clamp = 8
 	}
 	t4 := time.Now()
 	palImg := buildPaletted(w, h, pixels, pal, strength, clamp, opts.EntropyTie)
@@ -185,8 +186,8 @@ func ditherName(strength float64) string {
 		return "без дизеринга"
 	case 0.4:
 		return "FS mild 0.4"
-	case 0.6:
-		return "FS auto 0.6"
+	case 0.5:
+		return "FS auto 0.5"
 	case 1.0:
 		return "FS full"
 	}

@@ -1,6 +1,9 @@
 package compress
 
-import "sort"
+import (
+	"math"
+	"sort"
+)
 
 // medianCut — квантизация палитры: делим облако цветов по медиане канала
 // с наибольшим диапазоном, цвет коробки — среднее её пикселей.
@@ -38,20 +41,28 @@ func medianCut(pixels [][4]uint8, maxColors int) [][4]uint8 {
 	lo0, max0 := boxStats(0, len(idx))
 	boxes := []box{{0, len(idx), lo0, max0}}
 
+	// boxPopExp — показатель веса населения коробки при выборе сплита:
+	// размах канала × население^0.25. 0 — классический median-cut (чистый
+	// размах) скупится на широкие плотные градиенты (лесенка на icon.png),
+	// 0.5 уже раздувает фото-PNG сверх гейта (Nyasha +20.6%). 0.25 подобран
+	// по корпусу: bias icon 0.507→0.35, Nyasha остаётся в гейте (+4.2%).
+	const boxPopExp = 0.25
 	for len(boxes) < maxColors {
-		// Ищем коробку с наибольшим диапазоном — по сохранённой статистике.
-		bi, bestRange, bestCh := -1, 0, 0
+		bi, bestCh := -1, 0
+		bestScore := 0.0
 		for i, bx := range boxes {
 			if bx.hi-bx.lo < 2 {
 				continue
 			}
+			pop := float64(bx.hi - bx.lo)
 			for c := 0; c < 4; c++ {
-				if r := int(bx.maxC[c]) - int(bx.minC[c]); r > bestRange {
-					bestRange, bestCh, bi = r, c, i
+				r := float64(int(bx.maxC[c]) - int(bx.minC[c]))
+				if s := r * math.Pow(pop, boxPopExp); s > bestScore {
+					bestScore, bestCh, bi = s, c, i
 				}
 			}
 		}
-		if bi < 0 || bestRange == 0 {
+		if bi < 0 || bestScore == 0 {
 			break
 		}
 		// Делим коробку по медиане выбранного канала: устойчивая
@@ -179,3 +190,4 @@ func equalAssign(a, b []uint8) bool {
 	}
 	return true
 }
+

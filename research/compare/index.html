@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>tinyimg — сравнение до/после</title>
+<style>
+:root { color-scheme: dark; }
+* { box-sizing: border-box; }
+body { margin:0; font:15px/1.5 -apple-system, "Segoe UI", Roboto, sans-serif; background:#0f1115; color:#e8eaf0; }
+.hero { max-width:1080px; margin:0 auto; padding:48px 24px 8px; }
+.hero h1 { font-size:28px; margin:0 0 8px; }
+.hero p { color:#9aa3b2; margin:0 0 6px; }
+.hero .total { display:flex; gap:12px; flex-wrap:wrap; margin-top:16px; }
+.hero .total .chip { font-size:14px; padding:8px 14px; }
+.chip { background:#1b1f27; border:1px solid #2a303c; border-radius:999px; padding:4px 12px; color:#c8ceda; white-space:nowrap; }
+.chip-after { color:#7ee2a8; border-color:#235c3d; }
+.chip-before { color:#f0b26b; border-color:#5c4523; }
+.chip-strat { color:#8ab4f8; }
+main { max-width:1080px; margin:0 auto; padding:16px 24px 64px; display:grid; gap:32px; }
+.card { background:#151922; border:1px solid #232936; border-radius:16px; overflow:hidden; }
+.card-head { padding:16px 20px 12px; }
+.card-head h2 { font-size:15px; font-weight:600; margin:0 0 10px; word-break:break-all; }
+.meta { display:flex; gap:8px; flex-wrap:wrap; align-items:center; }
+.mode-btn { margin-left:auto; background:#232a38; color:#c8ceda; border:1px solid #323b4d; border-radius:8px; padding:5px 14px; cursor:pointer; font:inherit; font-size:13px; }
+.mode-btn:hover { background:#2b3345; }
+.cmp { position:relative; user-select:none; touch-action:pan-y; cursor:ew-resize; overflow:hidden;
+  background:repeating-conic-gradient(#20242e 0% 25%, #191d26 0% 50%) 0 0/24px 24px; }
+.cmp img.base { display:block; width:100%; height:auto; }
+.cmp img.top { position:absolute; inset:0; width:100%; height:100%; clip-path:inset(0 0 0 var(--pos)); }
+.handle { position:absolute; top:0; bottom:0; left:var(--pos); width:2px; background:#fff; transform:translateX(-1px); box-shadow:0 0 6px rgba(0,0,0,.6); }
+.handle span { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:34px; height:34px; border-radius:50%;
+  background:#fff; box-shadow:0 2px 8px rgba(0,0,0,.5); }
+.handle span::before { content:"⇔"; position:absolute; inset:0; display:grid; place-items:center; color:#333; font-size:16px; }
+.lbl { position:absolute; bottom:10px; font-size:12px; padding:3px 10px; border-radius:999px; background:rgba(10,12,16,.72); color:#e8eaf0; pointer-events:none; }
+.lbl-l { left:10px; } .lbl-r { right:10px; }
+.pair { display:none; grid-template-columns:1fr 1fr; gap:1px; background:#232936; }
+.card.zoom .cmp { display:none; }
+.card.zoom .pair { display:grid; }
+.pair figure { margin:0; background:#151922; }
+.pair figcaption { font-size:12px; color:#9aa3b2; padding:8px 12px; }
+.pair .scroll { overflow:auto; max-height:70vh; background:repeating-conic-gradient(#20242e 0% 25%, #191d26 0% 50%) 0 0/24px 24px; }
+.pair img { display:block; max-width:none; }
+footer { max-width:1080px; margin:0 auto; padding:0 24px 48px; color:#6b7383; font-size:13px; }
+</style>
+</head>
+<body>
+<div class="hero">
+  <h1>tinyimg — до / после</h1>
+  <p>Корпус <code>research/orginal</code>, 16 файлов. Прогон текущего бинаря, выход детерминирован.</p>
+  <p>Тяни разделитель мышью или пальцем. Кнопка «1:1 рядом» — оба изображения в натуральном размере с синхронной прокруткой (так видно дизеринг и ступени без масштабной интерполяции).</p>
+  <div class="total">
+    <span class="chip chip-before">Было · 26.09 МБ</span>
+    <span class="chip chip-after">Стало · 11.02 МБ (−57.8%)</span>
+    <span class="chip">wall 12.8 с</span>
+  </div>
+</div>
+<main>
+
+  <section class="card">
+    <header class="card-head">
+      <h2>haci-Ixyr-_hZWUI-unsplash.jpg</h2>
+      <div class="meta">
+        <span class="chip chip-before">Оригинал · 5.04 МБ</span>
+        <span class="chip chip-after">Сжато · 3.64 МБ (−27.8%)</span>
+        <span class="chip chip-strat">JPEG q=65 (SSIM2x ≥ 0.98)</span>
+        <button class="mode-btn" type="button">1:1 рядом</button>
+      </div>
+    </header>
+    <div class="cmp" style="--pos:50%">
+      <img class="base" loading="lazy" src="original/haci-Ixyr-_hZWUI-unsplash.jpg" alt="haci-Ixyr-_hZWUI-unsplash.jpg — оригинал" draggable="false">
+      <img class="top"  loading="lazy" src="out/haci-Ixyr-_hZWUI-unsplash.jpg" alt="haci-Ixyr-_hZWUI-unsplash.jpg — после сжатия" draggable="false">
+      <div class="handle"><span></span></div>
+      <span class="lbl lbl-l">Оригинал</span>
+      <span class="lbl lbl-r">Сжато −27.8%</span>
+    </div>
+    <div class="pair">
+      <figure><figcaption>Оригинал · 5.04 МБ</figcaption><div class="scroll"><img loading="lazy" src="original/haci-Ixyr-_hZWUI-unsplash.jpg" alt="" draggable="false"></div></figure>
+      <figure><figcaption>Сжато · 3.64 МБ</figcaption><div class="scroll"><img loading="lazy" src="out/haci-Ixyr-_hZWUI-unsplash.jpg" alt="" draggable="false"></div></figure>
+    </div>
+  </section>
+
+  <section class="card">
+    <header class="card-head">
+      <h2>PV_ART_Nyasha_sleep.png</h2>
+      <div class="meta">
+        <span class="chip chip-before">Оригинал · 3.56 МБ</span>
+        <span class="chip chip-after">Сжато · 1.19 МБ (−66.6%)</span>
+        <span class="chip chip-strat">палитра 256 (median-cut+Ллойд, FS auto 0.5)</span>
+        <button class="mode-btn" type="button">1:1 рядом</button>
+      </div>
+    </header>
+    <div class="cmp" style="--pos:50%">
+      <img class="base" loading="lazy" src="original/PV_ART_Nyasha_sleep.png" alt="PV_ART_Nyasha_sleep.png — оригинал" draggable="false">
+      <img class="top"  loading="lazy" src="out/PV_ART_Nyasha_sleep.png" alt="PV_ART_Nyasha_sleep.png — после сжатия" draggable="false">
+      <div class="handle"><span></span></div>
+      <span class="lbl lbl-l">Оригинал</span>
+      <span class="lbl lbl-r">Сжато −66.6%</span>
+    </div>
+    <div class="pair">
+      <figure><figcaption>Оригинал · 3.56 МБ</figcaption><div class="scroll"><img loading="lazy" src="original/PV_ART_Nyasha_sleep.png" alt="" draggable="false"></div></figure>
+      <figure><figcaption>Сжато · 1.19 МБ</figcaption><div class="scroll"><img loading="lazy" src="out/PV_ART_Nyasha_sleep.png" alt="" draggable="false"></div></figure>
+    </div>
+  </section>
+
+  <section class="card">
+    <header class="card-head">
+      <h2>PV_ART_Hand.png</h2>
+      <div class="meta">
+        <span class="chip chip-before">Оригинал · 2.83 МБ</span>
+        <span class="chip chip-after">Сжато · 1.03 МБ (−63.7%)</span>
+        <span class="chip chip-strat">палитра 256 (median-cut+Ллойд, FS auto 0.5)</span>
+        <button class="mode-btn" type="button">1:1 рядом</button>
+      </div>
+    </header>
+    <div class="cmp" style="--pos:50%">
+      <img class="base" loading="lazy" src="original/PV_ART_Hand.png" alt="PV_ART_Hand.png — оригинал" draggable="false">
+      <img class="top"  loading="lazy" src="out/PV_ART_Hand.png" alt="PV_ART_Hand.png — после сжатия" draggable="false">
+      <div class="handle"><span></span></div>
+      <span class="lbl lbl-l">Оригинал</span>
+      <span class="lbl lbl-r">Сжато −63.7%</span>
+    </div>
+    <div class="pair">
+      <figure><figcaption>Оригинал · 2.83 МБ</figcaption><div class="scroll"><img loading="lazy" src="original/PV_ART_Hand.png" alt="" draggable="false"></div></figure>
+      <figure><figcaption>Сжато · 1.03 МБ</figcaption><div class="scroll"><img loading="lazy" src="out/PV_ART_Hand.png" alt="" draggable="false"></div></figure>
+    </div>
+  </section>
+
+  <section class="card">
+    <header class="card-head">
+      <h2>WonderKids Landing Page Exploration by Paperpillar on Dribbble.png</h2>
+      <div class="meta">
+        <span class="chip chip-before">Оригинал · 2.31 МБ</span>
+        <span class="chip chip-after">Сжато · 653.6 КБ (−72.3%)</span>
+        <span class="chip chip-strat">палитра 256 (median-cut+Ллойд, FS auto 0.5)</span>
+        <button class="mode-btn" type="button">1:1 рядом</button>
+      </div>
+    </header>
+    <div class="cmp" style="--pos:50%">
+      <img class="base" loading="lazy" src="original/WonderKids%20Landing%20Page%20Exploration%20by%20Paperpillar%20on%20Dribbble.png" alt="WonderKids Landing Page Exploration by Paperpillar on Dribbble.png — оригинал" draggable="false">
+      <img class="top"  loading="lazy" src="out/WonderKids%20Landing%20Page%20Exploration%20by%20Paperpillar%20on%20Dribbble.png" alt="WonderKids Landing Page Exploration by Paperpillar on Dribbble.png — после сжатия" draggable="false">
+      <div class="handle"><span></span></div>
+      <span class="lbl lbl-l">Оригинал</span>
+      <span class="lbl lbl-r">Сжато −72.3%</span>
+    </div>
+    <div class="pair">
+      <figure><figcaption>Оригинал · 2.31 МБ</figcaption><div class="scroll"><img loading="lazy" src="original/WonderKids%20Landing%20Page%20Exploration%20by%20Paperpillar%20on%20Dribbble.png" alt="" draggable="false"></div></figure>
+      <figure><figcaption>Сжато · 653.6 КБ</figcaption><div class="scroll"><img loading="lazy" src="out/WonderKids%20Landing%20Page%20Exploration%20by%20Paperpillar%20on%20Dribbble.png" alt="" draggable="false"></div></figure>
+    </div>
+  </section>
+
+  <section class="card">
+    <header class="card-head">
+      <h2>catgirl_hoodie_halfzipped_small_chest.png</h2>
+      <div class="meta">
+        <span class="chip chip-before">Оригинал · 2.30 МБ</span>
+        <span class="chip chip-after">Сжато · 604.1 КБ (−74.3%)</span>
+        <span class="chip chip-strat">палитра 256 (median-cut+Ллойд, FS auto 0.5)</span>
+        <button class="mode-btn" type="button">1:1 рядом</button>
+      </div>
+    </header>
+    <div class="cmp" style="--pos:50%">
+      <img class="base" loading="lazy" src="original/catgirl_hoodie_halfzipped_small_chest.png" alt="catgirl_hoodie_halfzipped_small_chest.png — оригинал" draggable="false">
+      <img class="top"  loading="lazy" src="out/catgirl_hoodie_halfzipped_small_chest.png" alt="catgirl_hoodie_halfzipped_small_chest.png — после сжатия" draggable="false">
+      <div class="handle"><span></span></div>
+      <span class="lbl lbl-l">Оригинал</span>
+      <span class="lbl lbl-r">Сжато −74.3%</span>
+    </div>
+    <div class="pair">
+      <figure><figcaption>Оригинал · 2.30 МБ</figcaption><div class="scroll"><img loading="lazy" src="original/catgirl_hoodie_halfzipped_small_chest.png" alt="" draggable="false"></div></figure>
+      <figure><figcaption>Сжато · 604.1 КБ</figcaption><div class="scroll"><img loading="lazy" src="out/catgirl_hoodie_halfzipped_small_chest.png" alt="" draggable="false"></div></figure>
+    </div>
+  </section>
+
+  <section class="card">
+    <header class="card-head">
+      <h2>Набор маскотов лисы.png</h2>
+      <div class="meta">
+        <span class="chip chip-before">Оригинал · 2.23 МБ</span>
+        <span class="chip chip-after">Сжато · 480.6 КБ (−78.9%)</span>
+        <span class="chip chip-strat">палитра 256 (median-cut+Ллойд, FS auto 0.5)</span>
+        <button class="mode-btn" type="button">1:1 рядом</button>
+      </div>
+    </header>
+    <div class="cmp" style="--pos:50%">
+      <img class="base" loading="lazy" src="original/%D0%9D%D0%B0%D0%B1%D0%BE%D1%80%20%D0%BC%D0%B0%D1%81%D0%BA%D0%BE%D1%82%D0%BE%D0%B2%20%D0%BB%D0%B8%D1%81%D1%8B.png" alt="Набор маскотов лисы.png — оригинал" draggable="false">
+      <img class="top"  loading="lazy" src="out/%D0%9D%D0%B0%D0%B1%D0%BE%D1%80%20%D0%BC%D0%B0%D1%81%D0%BA%D0%BE%D1%82%D0%BE%D0%B2%20%D0%BB%D0%B8%D1%81%D1%8B.png" alt="Набор маскотов лисы.png — после сжатия" draggable="false">
+      <div class="handle"><span></span></div>
+      <span class="lbl lbl-l">Оригинал</span>
+      <span class="lbl lbl-r">Сжато −78.9%</span>
+    </div>
+    <div class="pair">
+      <figure><figcaption>Оригинал · 2.23 МБ</figcaption><div class="scroll"><img loading="lazy" src="original/%D0%9D%D0%B0%D0%B1%D0%BE%D1%80%20%D0%BC%D0%B0%D1%81%D0%BA%D0%BE%D1%82%D0%BE%D0%B2%20%D0%BB%D0%B8%D1%81%D1%8B.png" alt="" draggable="false"></div></figure>
+      <figure><figcaption>Сжато · 480.6 КБ</figcaption><div class="scroll"><img loading="lazy" src="out/%D0%9D%D0%B0%D0%B1%D0%BE%D1%80%20%D0%BC%D0%B0%D1%81%D0%BA%D0%BE%D1%82%D0%BE%D0%B2%20%D0%BB%D0%B8%D1%81%D1%8B.png" alt="" draggable="false"></div></figure>
+    </div>
+  </section>
+
+  <section class="card">
+    <header class="card-head">
+      <h2>test.webp</h2>
+      <div class="meta">
+        <span class="chip chip-before">Оригинал · 1.79 МБ</span>
+        <span class="chip chip-after">Сжато · 152.2 КБ (−91.7%)</span>
+        <span class="chip chip-strat">webp lossless → q46 (SSIM ≥ 0.98)</span>
+        <button class="mode-btn" type="button">1:1 рядом</button>
+      </div>
+    </header>
+    <div class="cmp" style="--pos:50%">
+      <img class="base" loading="lazy" src="original/test.webp" alt="test.webp — оригинал" draggable="false">
+      <img class="top"  loading="lazy" src="out/test.webp" alt="test.webp — после сжатия" draggable="false">
+      <div class="handle"><span></span></div>
+      <span class="lbl lbl-l">Оригинал</span>
+      <span class="lbl lbl-r">Сжато −91.7%</span>
+    </div>
+    <div class="pair">
+      <figure><figcaption>Оригинал · 1.79 МБ</figcaption><div class="scroll"><img loading="lazy" src="original/test.webp" alt="" draggable="false"></div></figure>
+      <figure><figcaption>Сжато · 152.2 КБ</figcaption><div class="scroll"><img loading="lazy" src="out/test.webp" alt="" draggable="false"></div></figure>
+    </div>
+  </section>
+
+  <section class="card">
+    <header class="card-head">
+      <h2>azim-khan-ronnie-sRNG4B5mro4-unsplash.jpg</h2>
+      <div class="meta">
+        <span class="chip chip-before">Оригинал · 1.10 МБ</span>
+        <span class="chip chip-after">Без изменений · 1.10 МБ</span>
+        <span class="chip chip-strat">уже оптимален (не трогаем)</span>
+        <button class="mode-btn" type="button">1:1 рядом</button>
+      </div>
+    </header>
+    <div class="cmp" style="--pos:50%">
+      <img class="base" loading="lazy" src="original/azim-khan-ronnie-sRNG4B5mro4-unsplash.jpg" alt="azim-khan-ronnie-sRNG4B5mro4-unsplash.jpg — оригинал" draggable="false">
+      <img class="top"  loading="lazy" src="out/azim-khan-ronnie-sRNG4B5mro4-unsplash.jpg" alt="azim-khan-ronnie-sRNG4B5mro4-unsplash.jpg — после сжатия" draggable="false">
+      <div class="handle"><span></span></div>
+      <span class="lbl lbl-l">Оригинал</span>
+      <span class="lbl lbl-r">Как оригинал</span>
+    </div>
+    <div class="pair">
+      <figure><figcaption>Оригинал · 1.10 МБ</figcaption><div class="scroll"><img loading="lazy" src="original/azim-khan-ronnie-sRNG4B5mro4-unsplash.jpg" alt="" draggable="false"></div></figure>
+      <figure><figcaption>Сжато · 1.10 МБ</figcaption><div class="scroll"><img loading="lazy" src="out/azim-khan-ronnie-sRNG4B5mro4-unsplash.jpg" alt="" draggable="false"></div></figure>
+    </div>
+  </section>
+
+  <section class="card">
+    <header class="card-head">
+      <h2>dmytro-koplyk-zU7l20MAAQw-unsplash.jpg</h2>
+      <div class="meta">
+        <span class="chip chip-before">Оригинал · 1.06 МБ</span>
+        <span class="chip chip-after">Сжато · 449.5 КБ (−58.7%)</span>
+        <span class="chip chip-strat">JPEG q=65 (SSIM2x ≥ 0.98)</span>
+        <button class="mode-btn" type="button">1:1 рядом</button>
+      </div>
+    </header>
+    <div class="cmp" style="--pos:50%">
+      <img class="base" loading="lazy" src="original/dmytro-koplyk-zU7l20MAAQw-unsplash.jpg" alt="dmytro-koplyk-zU7l20MAAQw-unsplash.jpg — оригинал" draggable="false">
+      <img class="top"  loading="lazy" src="out/dmytro-koplyk-zU7l20MAAQw-unsplash.jpg" alt="dmytro-koplyk-zU7l20MAAQw-unsplash.jpg — после сжатия" draggable="false">
+      <div class="handle"><span></span></div>
+      <span class="lbl lbl-l">Оригинал</span>
+      <span class="lbl lbl-r">Сжато −58.7%</span>
+    </div>
+    <div class="pair">
+      <figure><figcaption>Оригинал · 1.06 МБ</figcaption><div class="scroll"><img loading="lazy" src="original/dmytro-koplyk-zU7l20MAAQw-unsplash.jpg" alt="" draggable="false"></div></figure>
+      <figure><figcaption>Сжато · 449.5 КБ</figcaption><div class="scroll"><img loading="lazy" src="out/dmytro-koplyk-zU7l20MAAQw-unsplash.jpg" alt="" draggable="false"></div></figure>
+    </div>
+  </section>
+
+  <section class="card">
+    <header class="card-head">
+      <h2>matsvei-liatkouski-ws-JfdeniUo-unsplash.jpg</h2>
+      <div class="meta">
+        <span class="chip chip-before">Оригинал · 914.3 КБ</span>
+        <span class="chip chip-after">Сжато · 453.0 КБ (−50.5%)</span>
+        <span class="chip chip-strat">JPEG q=72 (SSIM2x ≥ 0.98)</span>
+        <button class="mode-btn" type="button">1:1 рядом</button>
+      </div>
+    </header>
+    <div class="cmp" style="--pos:50%">
+      <img class="base" loading="lazy" src="original/matsvei-liatkouski-ws-JfdeniUo-unsplash.jpg" alt="matsvei-liatkouski-ws-JfdeniUo-unsplash.jpg — оригинал" draggable="false">
+      <img class="top"  loading="lazy" src="out/matsvei-liatkouski-ws-JfdeniUo-unsplash.jpg" alt="matsvei-liatkouski-ws-JfdeniUo-unsplash.jpg — после сжатия" draggable="false">
+      <div class="handle"><span></span></div>
+      <span class="lbl lbl-l">Оригинал</span>
+      <span class="lbl lbl-r">Сжато −50.5%</span>
+    </div>
+    <div class="pair">
+      <figure><figcaption>Оригинал · 914.3 КБ</figcaption><div class="scroll"><img loading="lazy" src="original/matsvei-liatkouski-ws-JfdeniUo-unsplash.jpg" alt="" draggable="false"></div></figure>
+      <figure><figcaption>Сжато · 453.0 КБ</figcaption><div class="scroll"><img loading="lazy" src="out/matsvei-liatkouski-ws-JfdeniUo-unsplash.jpg" alt="" draggable="false"></div></figure>
+    </div>
+  </section>
+
+  <section class="card">
+    <header class="card-head">
+      <h2>maxim-berg-AwmuxIEtLEw-unsplash.jpg</h2>
+      <div class="meta">
+        <span class="chip chip-before">Оригинал · 733.5 КБ</span>
+        <span class="chip chip-after">Сжато · 486.4 КБ (−33.7%)</span>
+        <span class="chip chip-strat">JPEG q=52 (SSIM2x ≥ 0.98)</span>
+        <button class="mode-btn" type="button">1:1 рядом</button>
+      </div>
+    </header>
+    <div class="cmp" style="--pos:50%">
+      <img class="base" loading="lazy" src="original/maxim-berg-AwmuxIEtLEw-unsplash.jpg" alt="maxim-berg-AwmuxIEtLEw-unsplash.jpg — оригинал" draggable="false">
+      <img class="top"  loading="lazy" src="out/maxim-berg-AwmuxIEtLEw-unsplash.jpg" alt="maxim-berg-AwmuxIEtLEw-unsplash.jpg — после сжатия" draggable="false">
+      <div class="handle"><span></span></div>
+      <span class="lbl lbl-l">Оригинал</span>
+      <span class="lbl lbl-r">Сжато −33.7%</span>
+    </div>
+    <div class="pair">
+      <figure><figcaption>Оригинал · 733.5 КБ</figcaption><div class="scroll"><img loading="lazy" src="original/maxim-berg-AwmuxIEtLEw-unsplash.jpg" alt="" draggable="false"></div></figure>
+      <figure><figcaption>Сжато · 486.4 КБ</figcaption><div class="scroll"><img loading="lazy" src="out/maxim-berg-AwmuxIEtLEw-unsplash.jpg" alt="" draggable="false"></div></figure>
+    </div>
+  </section>
+
+  <section class="card">
+    <header class="card-head">
+      <h2>Dashboard UI Elements schedule graph statistics card clean website ui.png</h2>
+      <div class="meta">
+        <span class="chip chip-before">Оригинал · 704.2 КБ</span>
+        <span class="chip chip-after">Сжато · 245.1 КБ (−65.2%)</span>
+        <span class="chip chip-strat">палитра 256 (median-cut+Ллойд, FS auto 0.5)</span>
+        <button class="mode-btn" type="button">1:1 рядом</button>
+      </div>
+    </header>
+    <div class="cmp" style="--pos:50%">
+      <img class="base" loading="lazy" src="original/Dashboard%20UI%20Elements%20schedule%20graph%20statistics%20card%20clean%20website%20ui.png" alt="Dashboard UI Elements schedule graph statistics card clean website ui.png — оригинал" draggable="false">
+      <img class="top"  loading="lazy" src="out/Dashboard%20UI%20Elements%20schedule%20graph%20statistics%20card%20clean%20website%20ui.png" alt="Dashboard UI Elements schedule graph statistics card clean website ui.png — после сжатия" draggable="false">
+      <div class="handle"><span></span></div>
+      <span class="lbl lbl-l">Оригинал</span>
+      <span class="lbl lbl-r">Сжато −65.2%</span>
+    </div>
+    <div class="pair">
+      <figure><figcaption>Оригинал · 704.2 КБ</figcaption><div class="scroll"><img loading="lazy" src="original/Dashboard%20UI%20Elements%20schedule%20graph%20statistics%20card%20clean%20website%20ui.png" alt="" draggable="false"></div></figure>
+      <figure><figcaption>Сжато · 245.1 КБ</figcaption><div class="scroll"><img loading="lazy" src="out/Dashboard%20UI%20Elements%20schedule%20graph%20statistics%20card%20clean%20website%20ui.png" alt="" draggable="false"></div></figure>
+    </div>
+  </section>
+
+  <section class="card">
+    <header class="card-head">
+      <h2>icon.png</h2>
+      <div class="meta">
+        <span class="chip chip-before">Оригинал · 659.1 КБ</span>
+        <span class="chip chip-after">Сжато · 163.5 КБ (−75.2%)</span>
+        <span class="chip chip-strat">палитра 256 (median-cut+Ллойд, FS auto 0.5)</span>
+        <button class="mode-btn" type="button">1:1 рядом</button>
+      </div>
+    </header>
+    <div class="cmp" style="--pos:50%">
+      <img class="base" loading="lazy" src="original/icon.png" alt="icon.png — оригинал" draggable="false">
+      <img class="top"  loading="lazy" src="out/icon.png" alt="icon.png — после сжатия" draggable="false">
+      <div class="handle"><span></span></div>
+      <span class="lbl lbl-l">Оригинал</span>
+      <span class="lbl lbl-r">Сжато −75.2%</span>
+    </div>
+    <div class="pair">
+      <figure><figcaption>Оригинал · 659.1 КБ</figcaption><div class="scroll"><img loading="lazy" src="original/icon.png" alt="" draggable="false"></div></figure>
+      <figure><figcaption>Сжато · 163.5 КБ</figcaption><div class="scroll"><img loading="lazy" src="out/icon.png" alt="" draggable="false"></div></figure>
+    </div>
+  </section>
+
+  <section class="card">
+    <header class="card-head">
+      <h2>sies-kranen-B69QZzfJCXg-unsplash.jpg</h2>
+      <div class="meta">
+        <span class="chip chip-before">Оригинал · 556.3 КБ</span>
+        <span class="chip chip-after">Сжато · 260.4 КБ (−53.2%)</span>
+        <span class="chip chip-strat">JPEG q=72 (SSIM2x ≥ 0.98)</span>
+        <button class="mode-btn" type="button">1:1 рядом</button>
+      </div>
+    </header>
+    <div class="cmp" style="--pos:50%">
+      <img class="base" loading="lazy" src="original/sies-kranen-B69QZzfJCXg-unsplash.jpg" alt="sies-kranen-B69QZzfJCXg-unsplash.jpg — оригинал" draggable="false">
+      <img class="top"  loading="lazy" src="out/sies-kranen-B69QZzfJCXg-unsplash.jpg" alt="sies-kranen-B69QZzfJCXg-unsplash.jpg — после сжатия" draggable="false">
+      <div class="handle"><span></span></div>
+      <span class="lbl lbl-l">Оригинал</span>
+      <span class="lbl lbl-r">Сжато −53.2%</span>
+    </div>
+    <div class="pair">
+      <figure><figcaption>Оригинал · 556.3 КБ</figcaption><div class="scroll"><img loading="lazy" src="original/sies-kranen-B69QZzfJCXg-unsplash.jpg" alt="" draggable="false"></div></figure>
+      <figure><figcaption>Сжато · 260.4 КБ</figcaption><div class="scroll"><img loading="lazy" src="out/sies-kranen-B69QZzfJCXg-unsplash.jpg" alt="" draggable="false"></div></figure>
+    </div>
+  </section>
+
+  <section class="card">
+    <header class="card-head">
+      <h2>Components Web App Interface by Golo on Dribbble.jpg</h2>
+      <div class="meta">
+        <span class="chip chip-before">Оригинал · 267.3 КБ</span>
+        <span class="chip chip-after">Сжато · 93.2 КБ (−65.1%)</span>
+        <span class="chip chip-strat">JPEG q=52 (SSIM2x ≥ 0.98)</span>
+        <button class="mode-btn" type="button">1:1 рядом</button>
+      </div>
+    </header>
+    <div class="cmp" style="--pos:50%">
+      <img class="base" loading="lazy" src="original/Components%20Web%20App%20Interface%20by%20Golo%20on%20Dribbble.jpg" alt="Components Web App Interface by Golo on Dribbble.jpg — оригинал" draggable="false">
+      <img class="top"  loading="lazy" src="out/Components%20Web%20App%20Interface%20by%20Golo%20on%20Dribbble.jpg" alt="Components Web App Interface by Golo on Dribbble.jpg — после сжатия" draggable="false">
+      <div class="handle"><span></span></div>
+      <span class="lbl lbl-l">Оригинал</span>
+      <span class="lbl lbl-r">Сжато −65.1%</span>
+    </div>
+    <div class="pair">
+      <figure><figcaption>Оригинал · 267.3 КБ</figcaption><div class="scroll"><img loading="lazy" src="original/Components%20Web%20App%20Interface%20by%20Golo%20on%20Dribbble.jpg" alt="" draggable="false"></div></figure>
+      <figure><figcaption>Сжато · 93.2 КБ</figcaption><div class="scroll"><img loading="lazy" src="out/Components%20Web%20App%20Interface%20by%20Golo%20on%20Dribbble.jpg" alt="" draggable="false"></div></figure>
+    </div>
+  </section>
+
+  <section class="card">
+    <header class="card-head">
+      <h2>photo_2026-11-06 20.37.22.jpeg</h2>
+      <div class="meta">
+        <span class="chip chip-before">Оригинал · 112.4 КБ</span>
+        <span class="chip chip-after">Без изменений · 112.4 КБ</span>
+        <span class="chip chip-strat">уже оптимален (не трогаем)</span>
+        <button class="mode-btn" type="button">1:1 рядом</button>
+      </div>
+    </header>
+    <div class="cmp" style="--pos:50%">
+      <img class="base" loading="lazy" src="original/photo_2026-11-06%2020.37.22.jpeg" alt="photo_2026-11-06 20.37.22.jpeg — оригинал" draggable="false">
+      <img class="top"  loading="lazy" src="out/photo_2026-11-06%2020.37.22.jpeg" alt="photo_2026-11-06 20.37.22.jpeg — после сжатия" draggable="false">
+      <div class="handle"><span></span></div>
+      <span class="lbl lbl-l">Оригинал</span>
+      <span class="lbl lbl-r">Как оригинал</span>
+    </div>
+    <div class="pair">
+      <figure><figcaption>Оригинал · 112.4 КБ</figcaption><div class="scroll"><img loading="lazy" src="original/photo_2026-11-06%2020.37.22.jpeg" alt="" draggable="false"></div></figure>
+      <figure><figcaption>Сжато · 112.4 КБ</figcaption><div class="scroll"><img loading="lazy" src="out/photo_2026-11-06%2020.37.22.jpeg" alt="" draggable="false"></div></figure>
+    </div>
+  </section>
+</main>
+<footer>Сгенерировано автоматически из research/compare/report.json</footer>
+<script>
+document.querySelectorAll('.card').forEach(card => {
+  const cmp = card.querySelector('.cmp');
+  const setPos = x => {
+    const r = cmp.getBoundingClientRect();
+    let p = (x - r.left) / r.width;
+    p = Math.max(0, Math.min(1, p));
+    cmp.style.setProperty('--pos', (p * 100) + '%');
+  };
+  cmp.addEventListener('pointerdown', e => {
+    cmp.setPointerCapture(e.pointerId);
+    setPos(e.clientX);
+    const mv = ev => setPos(ev.clientX);
+    cmp.addEventListener('pointermove', mv);
+    cmp.addEventListener('pointerup', () => cmp.removeEventListener('pointermove', mv), { once: true });
+  });
+  const btn = card.querySelector('.mode-btn');
+  btn.addEventListener('click', () => {
+    card.classList.toggle('zoom');
+    const on = card.classList.contains('zoom');
+    btn.textContent = on ? 'Слайдер' : '1:1 рядом';
+    if (on) {
+      const panes = card.querySelectorAll('.pair .scroll');
+      panes.forEach(p => p.addEventListener('scroll', () => {
+        panes.forEach(q => { if (q !== p) { q.scrollLeft = p.scrollLeft; q.scrollTop = p.scrollTop; } });
+      }));
+    }
+  });
+});
+</script>
+</body>
+</html>

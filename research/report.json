@@ -209,12 +209,12 @@
       "unique_orig": 16771,
       "unique_comp": 255
     },
-    "ours_size": 222342,
+    "ours_size": 251019,
     "ours_metrics": {
-      "psnr": 39.43489942676525,
-      "ssim": 0.9860787197106732,
+      "psnr": 42.342032900818424,
+      "ssim": 0.9959592831562832,
       "unique_orig": 16771,
-      "unique_comp": 229
+      "unique_comp": 238
     },
     "gate_size_ok": true,
     "gate_ssim_ok": true,
@@ -434,10 +434,10 @@
       "unique_orig": 88338,
       "unique_comp": 256
     },
-    "ours_size": 1170046,
+    "ours_size": 1077847,
     "ours_metrics": {
-      "psnr": 37.56917059044194,
-      "ssim": 0.9849636434248993,
+      "psnr": 38.26628803419206,
+      "ssim": 0.9918535812645256,
       "unique_orig": 88338,
       "unique_comp": 254
     },
@@ -2037,12 +2037,12 @@
       "unique_orig": 127959,
       "unique_comp": 256
     },
-    "ours_size": 1416040,
+    "ours_size": 1249236,
     "ours_metrics": {
-      "psnr": 33.95237220810979,
-      "ssim": 0.9804650211111653,
+      "psnr": 34.48230196040694,
+      "ssim": 0.9867761544160395,
       "unique_orig": 127959,
-      "unique_comp": 236
+      "unique_comp": 241
     },
     "gate_size_ok": true,
     "gate_ssim_ok": true,
@@ -4016,12 +4016,12 @@
       "unique_orig": 66233,
       "unique_comp": 256
     },
-    "ours_size": 688500,
+    "ours_size": 669294,
     "ours_metrics": {
-      "psnr": 36.48637791623686,
-      "ssim": 0.9910717495455783,
+      "psnr": 37.35079268430556,
+      "ssim": 0.9950051168787449,
       "unique_orig": 66233,
-      "unique_comp": 232
+      "unique_comp": 234
     },
     "gate_size_ok": true,
     "gate_ssim_ok": true,
@@ -4173,10 +4173,10 @@
       "unique_orig": 381375,
       "unique_comp": 256
     },
-    "ours_size": 608340,
+    "ours_size": 618580,
     "ours_metrics": {
-      "psnr": 28.980144945787913,
-      "ssim": 0.9544378669303722,
+      "psnr": 30.346759297906864,
+      "ssim": 0.967546318562252,
       "unique_orig": 381375,
       "unique_comp": 256
     },
@@ -4472,12 +4472,12 @@
       "unique_orig": 77489,
       "unique_comp": 81817
     },
-    "ours_size": 99974,
+    "ours_size": 115060,
     "ours_metrics": {
-      "psnr": 31.104543217192177,
-      "ssim": 0.9787073912469483,
+      "psnr": null,
+      "ssim": 1,
       "unique_orig": 77489,
-      "unique_comp": 100544
+      "unique_comp": 77489
     },
     "gate_size_ok": true,
     "gate_ssim_ok": true,

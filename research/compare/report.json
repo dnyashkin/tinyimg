@@ -1,0 +1,139 @@
+{
+  "results": [
+    {
+      "name": "Components Web App Interface by Golo on Dribbble.jpg",
+      "before": 273736,
+      "after": 95405,
+      "saved_percent": 65.1,
+      "duration_ms": 273,
+      "strategy": "JPEG q=52 (SSIM2x ≥ 0.98)"
+    },
+    {
+      "name": "Dashboard UI Elements schedule graph statistics card clean website ui.png",
+      "before": 721068,
+      "after": 251019,
+      "saved_percent": 65.2,
+      "duration_ms": 952,
+      "strategy": "палитра 256 (median-cut+Ллойд, FS auto 0.5)"
+    },
+    {
+      "name": "PV_ART_Hand.png",
+      "before": 2971419,
+      "after": 1077847,
+      "saved_percent": 63.7,
+      "duration_ms": 6444,
+      "strategy": "палитра 256 (median-cut+Ллойд, FS auto 0.5)"
+    },
+    {
+      "name": "PV_ART_Nyasha_sleep.png",
+      "before": 3737107,
+      "after": 1249236,
+      "saved_percent": 66.6,
+      "duration_ms": 7061,
+      "strategy": "палитра 256 (median-cut+Ллойд, FS auto 0.5)"
+    },
+    {
+      "name": "WonderKids Landing Page Exploration by Paperpillar on Dribbble.png",
+      "before": 2418986,
+      "after": 669294,
+      "saved_percent": 72.3,
+      "duration_ms": 3989,
+      "strategy": "палитра 256 (median-cut+Ллойд, FS auto 0.5)"
+    },
+    {
+      "name": "azim-khan-ronnie-sRNG4B5mro4-unsplash.jpg",
+      "before": 1156456,
+      "after": 1156456,
+      "saved_percent": 0,
+      "duration_ms": 2043,
+      "strategy": "уже оптимален (не трогаем)"
+    },
+    {
+      "name": "catgirl_hoodie_halfzipped_small_chest.png",
+      "before": 2407970,
+      "after": 618580,
+      "saved_percent": 74.3,
+      "duration_ms": 3234,
+      "strategy": "палитра 256 (median-cut+Ллойд, FS auto 0.5)"
+    },
+    {
+      "name": "dmytro-koplyk-zU7l20MAAQw-unsplash.jpg",
+      "before": 1114871,
+      "after": 460289,
+      "saved_percent": 58.7,
+      "duration_ms": 3418,
+      "strategy": "JPEG q=65 (SSIM2x ≥ 0.98)"
+    },
+    {
+      "name": "haci-Ixyr-_hZWUI-unsplash.jpg",
+      "before": 5287655,
+      "after": 3816360,
+      "saved_percent": 27.8,
+      "duration_ms": 10137,
+      "strategy": "JPEG q=65 (SSIM2x ≥ 0.98)"
+    },
+    {
+      "name": "icon.png",
+      "before": 674931,
+      "after": 167452,
+      "saved_percent": 75.2,
+      "duration_ms": 896,
+      "strategy": "палитра 256 (median-cut+Ллойд, FS auto 0.5)"
+    },
+    {
+      "name": "matsvei-liatkouski-ws-JfdeniUo-unsplash.jpg",
+      "before": 936230,
+      "after": 463821,
+      "saved_percent": 50.5,
+      "duration_ms": 2304,
+      "strategy": "JPEG q=72 (SSIM2x ≥ 0.98)"
+    },
+    {
+      "name": "maxim-berg-AwmuxIEtLEw-unsplash.jpg",
+      "before": 751120,
+      "after": 498096,
+      "saved_percent": 33.7,
+      "duration_ms": 3320,
+      "strategy": "JPEG q=52 (SSIM2x ≥ 0.98)"
+    },
+    {
+      "name": "photo_2026-11-06 20.37.22.jpeg",
+      "before": 115060,
+      "after": 115060,
+      "saved_percent": 0,
+      "duration_ms": 214,
+      "strategy": "уже оптимален (не трогаем)"
+    },
+    {
+      "name": "sies-kranen-B69QZzfJCXg-unsplash.jpg",
+      "before": 569616,
+      "after": 266683,
+      "saved_percent": 53.2,
+      "duration_ms": 1333,
+      "strategy": "JPEG q=72 (SSIM2x ≥ 0.98)"
+    },
+    {
+      "name": "test.webp",
+      "before": 1880224,
+      "after": 155878,
+      "saved_percent": 91.7,
+      "duration_ms": 6865,
+      "strategy": "webp lossless → q46 (SSIM ≥ 0.98)"
+    },
+    {
+      "name": "Набор маскотов лисы.png",
+      "before": 2336896,
+      "after": 492166,
+      "saved_percent": 78.9,
+      "duration_ms": 3045,
+      "strategy": "палитра 256 (median-cut+Ллойд, FS auto 0.5)"
+    }
+  ],
+  "total": {
+    "before": 27353345,
+    "after": 11553642,
+    "wall_ms": 12820
+  }
+}
+
+итого: 26.09 МБ → 11.02 МБ (−57.8%) за 12.8 с wall (2.0 МБ/с), 6 потоков

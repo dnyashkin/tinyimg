@@ -1,5 +1,7 @@
 package compress
 
+import "sort"
+
 // medianCut — квантизация палитры: делим облако цветов по медиане канала
 // с наибольшим диапазоном, цвет коробки — среднее её пикселей.
 // Разбиение — поразрядной сортировкой по каналу (O(n+256) вместо O(n log n)):
@@ -111,10 +113,25 @@ func medianCut(pixels [][4]uint8, maxColors int) [][4]uint8 {
 // идентична полному прогону, поведенческая нейтральность сохранена).
 func lloydRefine(hist map[[4]uint8]int, pal [][4]uint8, iters int) [][4]uint8 {
 	colors := make([][4]uint8, 0, len(hist))
-	weights := make([]int, 0, len(hist))
-	for c, n := range hist {
+	for c := range hist {
 		colors = append(colors, c)
-		weights = append(weights, n)
+	}
+	// Порядок обхода map случаен, а float-суммы не ассоциативны: без
+	// сортировки центроиды округлялись в ±1 уровень от запуска к запуску
+	// и выход одного файла гулял по байтам. Фиксированный порядок
+	// накопления = детерминированная палитра.
+	sort.Slice(colors, func(i, j int) bool {
+		a, b := colors[i], colors[j]
+		for k := 0; k < 4; k++ {
+			if a[k] != b[k] {
+				return a[k] < b[k]
+			}
+		}
+		return false
+	})
+	weights := make([]int, len(colors))
+	for i := range colors {
+		weights[i] = hist[colors[i]]
 	}
 	pal = append([][4]uint8(nil), pal...)
 	assign := make([]uint8, len(colors))

@@ -7,6 +7,7 @@ import (
 	"image/color"
 	"image/png"
 	"os"
+	"sort"
 	"time"
 )
 
@@ -210,6 +211,17 @@ func paletteFrom(hist map[[4]uint8]int) [][4]uint8 {
 	for p := range hist {
 		pal = append(pal, p)
 	}
+	// Порядок записей фиксируем: обход map случаен, и без сортировки
+	// PLTE-чанк (а значит и байты выхода) гулял от запуска к запуску.
+	sort.Slice(pal, func(i, j int) bool {
+		a, b := pal[i], pal[j]
+		for k := 0; k < 4; k++ {
+			if a[k] != b[k] {
+				return a[k] < b[k]
+			}
+		}
+		return false
+	})
 	return pal
 }
 

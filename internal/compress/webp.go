@@ -17,18 +17,20 @@ package compress
 #include <webp/decode.h>
 #include <webp/encode.h>
 
-// webp_encode_lossless_go — lossless через расширенный API (method=6,
-// quality=100 — «effort»): плотнее дефолтного WebPEncodeLosslessRGBA.
-// Владение буфером переходит вызывающему (освободить WebPFree).
+// webp_encode_lossless_go — lossless через расширенный API: method 0..6
+// (скорость/плотность), quality — «effort» для lossless. Плотнее дефолтного
+// WebPEncodeLosslessRGBA. Владение буфером переходит вызывающему
+// (освободить WebPFree).
 static size_t webp_encode_lossless_go(const uint8_t* rgba, int w, int h,
-                                      int stride, uint8_t** out) {
+                                      int stride, int method, float quality,
+                                      uint8_t** out) {
   WebPConfig cfg;
   WebPPicture pic;
   WebPMemoryWriter wrt;
   if (!WebPConfigInit(&cfg)) return 0;
   cfg.lossless = 1;
-  cfg.quality = 100;
-  cfg.method = 6;
+  cfg.quality = quality;
+  cfg.method = method;
   if (!WebPPictureInit(&pic)) return 0;
   pic.use_argb = 1;
   pic.width = w;
@@ -113,9 +115,9 @@ func webpEncodeLossy(w, h int, rgba []uint8, q float32) []byte {
 	return b
 }
 
-func webpEncodeLossless(w, h int, rgba []uint8) []byte {
+func webpEncodeLosslessM(w, h int, rgba []uint8, method int, quality float32) []byte {
 	var out *C.uint8_t
-	sz := C.webp_encode_lossless_go((*C.uint8_t)(unsafe.Pointer(&rgba[0])), C.int(w), C.int(h), C.int(w*4), &out)
+	sz := C.webp_encode_lossless_go((*C.uint8_t)(unsafe.Pointer(&rgba[0])), C.int(w), C.int(h), C.int(w*4), C.int(method), C.float(quality), &out)
 	if sz == 0 || out == nil {
 		return nil
 	}
@@ -124,8 +126,12 @@ func webpEncodeLossless(w, h int, rgba []uint8) []byte {
 	return b
 }
 
-// rgbSSIM — SSIM (окна 8×8) по каналам R, G, B двух RGBA-буферов,
-// сведённый с весами яркости (0.299/0.587/0.114).
+func webpEncodeLossless(w, h int, rgba []uint8) []byte {
+	return webpEncodeLosslessM(w, h, rgba, 6, 100)
+}
+
+// rgbSSIM — SSIM (окна 8×8, непересекающиеся) по каналам R, G, B двух
+// RGBA-буферов, сведённый с весами яркости (0.299/0.587/0.114).
 //
 // Считать только луму нельзя: lossy-кодек с YUV420 размывает именно
 // хрому (резкие цветные края, красный текст), а лумовый SSIM этого не
@@ -134,20 +140,12 @@ func webpEncodeLossless(w, h int, rgba []uint8) []byte {
 // Прозрачные пиксели (альфа = 0) не сравниваются: RGB под полностью
 // прозрачными пикселями не определён (энкодер их обнуляет или заполняет
 // мусором), и без исключения метрика врёт на прозрачных картинках.
+//
+// Суммы копятся прямо из RGBA-буферов, без промежуточных float64-плоскостей:
+// раньше они стоили ~49 байт/пиксель на каждый вызов свипа (для 100 Мпикс —
+// ~5 ГБ живой памяти, скрытый OOM поверх гарда MaxPixels). Порядок
+// суммирования по окну тот же, поэтому значения бит-в-бит прежние.
 func rgbSSIM(a, b []uint8, w, h int) float64 {
-	// Каналы разложены в float64-плоскости один раз; дальше оконный проход.
-	n := w * h
-	ca := make([][3]float64, n)
-	cb := make([][3]float64, n)
-	alpha := make([]uint8, n)
-	for i := 0; i < n; i++ {
-		ca[i] = [3]float64{float64(a[i*4]), float64(a[i*4+1]), float64(a[i*4+2])}
-		cb[i] = [3]float64{float64(b[i*4]), float64(b[i*4+1]), float64(b[i*4+2])}
-		// Прозрачен хотя бы в одном — RGB не определён, не сравниваем.
-		if a[i*4+3] != 0 && b[i*4+3] != 0 {
-			alpha[i] = 255
-		}
-	}
 	const c1, c2 = 6.5025, 58.5225
 	var total [3]float64
 	var nWin int
@@ -158,11 +156,14 @@ func rgbSSIM(a, b []uint8, w, h int) float64 {
 			for y := 0; y < 8; y++ {
 				for x := 0; x < 8; x++ {
 					idx := (by+y)*w + bx + x
-					// сравниваем только непрозрачные пиксели
-					if alpha[idx] == 0 {
+					// Прозрачен хотя бы в одном — RGB не определён,
+					// не сравниваем.
+					if a[idx*4+3] == 0 || b[idx*4+3] == 0 {
 						continue
 					}
-					pa, pb := ca[idx], cb[idx]
+					ai, bi := idx*4, idx*4
+					pa := [3]float64{float64(a[ai]), float64(a[ai+1]), float64(a[ai+2])}
+					pb := [3]float64{float64(b[bi]), float64(b[bi+1]), float64(b[bi+2])}
 					for c := 0; c < 3; c++ {
 						ma[c] += pa[c]
 						mb[c] += pb[c]
@@ -203,6 +204,13 @@ const webpSSIMGate = 0.98
 // lossless-переупак (пиксель-в-пиксель) или lossy-свип по тому же контракту
 // «визуально без потери», что и палитра для PNG: сохранивший lossless файл
 // часто пережимается в разы без видимой разницы (проверено глазами на арте).
+//
+// Скорость: lossless-кандидат сначала пробуется дешёвым method=4
+// (параллельно со свипом). Дорогой method=6 (выигрыш у него лишь ~0.4–3%
+// против method=4 при ×4–5 ко времени) запускается только когда lossless
+// вообще может победить: lossy-свип не прошёл гейт или проба близка к
+// lossy по размеру. На фотошном lossless-входе раньше method=6 жёг
+// ~85% времени файла впустую (замер research, 2026-11).
 func compressWebP(src, dst string, opts Options, stage *stageLogger) (before, after int64, strategy string, err error) {
 	raw, err := os.ReadFile(src)
 	if err != nil {
@@ -226,15 +234,13 @@ func compressWebP(src, dst string, opts Options, stage *stageLogger) (before, af
 
 	lossless := webpIsLossless(raw)
 
-	// Кандидат 1: lossless-переупак (без потерь совсем).
-	var losslessOut []byte
+	// Кандидат 1: lossless-проба method=4 — параллельно со свипом (rgba
+	// читается обеими сторонами, не меняется).
+	probeCh := make(chan []byte, 1)
 	if lossless {
-		t1 := time.Now()
-		losslessOut = webpEncodeLossless(w, h, rgba)
-		stage.log("webp-encode-lossless", t1)
-		if len(losslessOut) >= len(raw) {
-			losslessOut = nil
-		}
+		go func() { probeCh <- webpEncodeLosslessM(w, h, rgba, 4, 100) }()
+	} else {
+		probeCh <- nil
 	}
 
 	// Кандидат 2: lossy-свип при SSIM ≥ 0.98 к пикселям входа.
@@ -252,6 +258,8 @@ func compressWebP(src, dst string, opts Options, stage *stageLogger) (before, af
 		}
 		if rgbSSIM(rgba, opix, w, h) >= webpSSIMGate {
 			lossyOut, bestQ = out, q
+		} else {
+			break // SSIM монотонно падает с q: ниже только хуже
 		}
 	}
 	stage.log("webp-encode-sweep", t2)
@@ -260,6 +268,24 @@ func compressWebP(src, dst string, opts Options, stage *stageLogger) (before, af
 	if lossyOut != nil && float64(len(lossyOut)) > 0.9*float64(len(raw)) {
 		lossyOut = nil
 	}
+
+	// Lossless-кандидат: проба + (редко) доводка method=6.
+	t1 := time.Now()
+	var losslessOut []byte
+	if probe := <-probeCh; len(probe) > 0 && len(probe) < len(raw) {
+		// method=6 оправдан, только если lossless реально конкурентен:
+		// lossy не прошёл гейт (line-art, текст) или проба рядом с lossy.
+		if lossyOut == nil || len(probe) <= len(lossyOut)*103/100 {
+			if m6 := webpEncodeLosslessM(w, h, rgba, 6, 100); len(m6) > 0 && len(m6) < len(probe) {
+				losslessOut = m6
+			} else {
+				losslessOut = probe
+			}
+		}
+		// Иначе проба в разы крупнее lossy: кандидат всё равно проиграет
+		// выбор, method=6 был бы чистой тратой секунд.
+	}
+	stage.log("webp-encode-lossless", t1)
 
 	// Выбор: минимальный из кандидатов.
 	out, strategy := raw, "webp q (уже оптимален)"

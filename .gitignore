@@ -37,3 +37,9 @@ go.work.sum
 research/compare/original/
 research/compare/out/
 research/compare/preview.png
+
+# параметры прода для deploy/deploy.sh (хост, пути) — не коммитим
+deploy/deploy.env
+
+# артефакты сборки release-скрипта
+dist/
